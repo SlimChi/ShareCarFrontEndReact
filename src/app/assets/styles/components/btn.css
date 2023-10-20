@@ -1,6 +1,6 @@
 
 .btn{
-    @apply inline-flex items-center justify-center px-4 py-2 text-base font-medium transform border border-transparent rounded-md shadow whitespace-nowrap focus:outline-none active:scale-95 active:ring-2 active:ring-offset-2 active:ring-white ;
+    @apply inline-flex items-center justify-center  px-4 py-2 text-base font-medium transform border border-transparent shadow whitespace-nowrap focus:outline-none active:scale-95 active:ring-2 active:ring-offset-2 active:ring-white ;
 }
 
 .btn-link-primary{
@@ -24,7 +24,10 @@
 }
 
 .btn-green{
-    @apply text-white bg-[#57b526] hover:bg-[#81ff00] hover:text-white active:ring-[#57b526] ;
+    @apply text-white bg-[#57b526] hover:bg-[#87e824] hover:text-white active:ring-[#57b526] ;
+}
+.btn-green-inverse{
+    @apply text-[#57b526] bg-white border-[#57b526] hover:bg-[#57b526] hover:text-white active:ring-[#87e824] ;
 }
 
 .btn-yellow{

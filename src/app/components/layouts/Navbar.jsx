@@ -8,6 +8,8 @@ import {
   URL_REGISTER,
 } from "../../constants/urls/urlFrontEnd";
 
+import DropdownMenu from "./DropdownMenu";
+
 
 import { FiSearch } from "react-icons/fi";
 import { IoIosAddCircleOutline } from "react-icons/io";
@@ -41,7 +43,8 @@ const Navbar = () => {
             <a href="" className="flex flex-row items-center justify-between w-[10rem] text-[#FFFFFF]"><IoIosAddCircleOutline className="text-[#57B526] text-3xl"/>Publier un trajet</a>
           </div>
           <div className="ml-10">
-            <button><PiUserSquareLight className="text-[#57B526] text-5xl cursor-pointer"/></button>
+            {/* <button><PiUserSquareLight className="text-[#57B526] text-5xl cursor-pointer"/></button> */}
+            <DropdownMenu/>
           </div>
           <div className="ml-10">
             <button><CiDark className="text-[#57B526] text-3xl cursor-pointer"/></button>

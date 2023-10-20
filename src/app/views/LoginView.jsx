@@ -22,7 +22,7 @@ const LoginView = () => {
     return (
       
         <div className="flex items-center ml-[15%]">
-            <div className="flex  w-full items-center ">
+            <div className="flex w-full  ">
                 <Login className="" />
             </div>
             <div className="flex  w-full items-center ">

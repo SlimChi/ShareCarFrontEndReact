@@ -38,7 +38,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className="relative flex h-full cursor-default flex-col bg-gray-100">
+      <div className="relative flex h-full cursor-default flex-col bg-white">
         <Navbar />
         <main className="mt-24 grow">
           <Routes />

@@ -20,9 +20,7 @@ const Routes = () => {
       <Route
         path={URL.URL_HOME}
         element={
-          <PrivateRoute>
             <HomeView />
-          </PrivateRoute>
         }
       />
       <Route

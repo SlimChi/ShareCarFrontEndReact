@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-import { URL_HOME } from "../../constants/urls/urlFrontEnd";
+import { URL_HOME, URL_REGISTER } from "../../constants/urls/urlFrontEnd";
 import { signIn } from "../../redux-store/authenticationSlice";
 import { authenticate } from "./../../api/backend/account";
 
@@ -48,7 +48,7 @@ const Login = () => {
         onSubmit={handleLogin}
       >
         <Form className="mt-8 space-y-6">
-          <div className="flex flex-col space-y-3 rounded-md shadow-sm">
+          <div className="flex flex-col space-y-3 rounded-md  shadow-sm">
             <Field
               type="text"
               name="username"
@@ -63,22 +63,22 @@ const Login = () => {
               autoComplete="current-password"
               className="input"
             />
-          </div>
-
-          <div className="mt-3 flex items-center justify-between">
-            <div className="text-sm">
-              <Link to="/forgot-password">
-                <span className="cursor-pointer font-medium text-primary-dark hover:text-primary">
-                  Mot de passe oublié?
-                </span>
-              </Link>
+            <div className="flex items-center">
+            <Field
+              type="checkbox"
+              name="toggle"
+              className="checkbox  mt-4"
+            /> 
+            <p className="ml-2 text-xs text-[#114076] mt-4">Rester connecté</p>
             </div>
           </div>
 
-          <div>
+         
+
+          <div >
             <button
               type="submit"
-              className="btn btn-green group relative w-full"
+              className="btn btn-green group relative w-full mt-6"
             >
               SE CONNECTER
             </button>
@@ -90,6 +90,27 @@ const Login = () => {
               </small>
             </div>
           )}
+
+          <div className="mt-3 flex justify-end ">
+            <div className="text-sm ">
+              <Link to="/NewPassword" >
+                <span className=" cursor-pointer font-medium text-primary-dark italic hover:text-primary ">
+                  Mot de passe oublié?
+                </span>
+              </Link>
+            </div>
+          </div>
+
+          <div>
+            <Link to={URL_REGISTER}>
+              <button
+                type="submit"
+                className="btn btn-green-inverse group relative w-full"
+              >
+                CREER UN COMPTE
+              </button>
+            </Link>
+          </div>
         </Form>
       </Formik>
     </div>

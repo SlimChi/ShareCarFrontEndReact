@@ -3,10 +3,10 @@
 @layer base {
 
     html{
-        @apply h-full bg-white
+        @apply h-full 
     }
     body{
-        @apply h-full bg-white
+        @apply h-full 
     }
 
     
@@ -29,4 +29,8 @@
     h6{
         @apply text-xl
     }
+}
+
+html {
+    font-family: 'Montserrat', sans-serif;
 }

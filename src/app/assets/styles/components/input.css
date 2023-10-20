@@ -1,6 +1,6 @@
 .input{
     @apply appearance-none relative block w-full px-3 py-2 
-    border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md 
+    border-t-0 border-l-0 border-r-0 border-b border-b-[#57B526] placeholder-gray-500 text-gray-900 rounded-md 
     focus:outline-none focus:ring-primary focus:border-primary focus:z-20 sm:text-sm
 }
 
@@ -9,7 +9,7 @@
 }
 
 .checkbox {
-    @apply h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded cursor-pointer
+    @apply h-4 w-4 text-[#57B526] focus:ring-primary border-[#57B526] rounded cursor-pointer
 }
 
 .checkbox-error{
