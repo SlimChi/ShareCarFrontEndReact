@@ -30,23 +30,15 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full max-w-md space-y-8 rounded-md bg-white p-4 py-12 px-4 shadow sm:px-6 lg:px-8">
+    <div className="w-full max-w-md space-y-8 rounded-md  p-4 py-12 px-4  sm:px-6 lg:px-8">
       <div>
-        <div className="flex justify-center">
-          <img
-            className="h-12 w-auto cursor-pointer sm:h-10"
-            src="https://insy2s.com/insy2s/images/Logo-insy2s-INLINE-2021.svg"
-            alt=""
-            width={200}
-            height={60}
-          />
-        </div>
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-800">
-          Sign in to your account
+
+        <h2 className="mt-6 text-center text-2xl font-bold text-[#114076]">
+          CONNEXION
         </h2>
       </div>
 
-      <hr />
+      {/* <hr /> */}
 
       <Formik
         initialValues={{
@@ -60,14 +52,14 @@ const Login = () => {
             <Field
               type="text"
               name="username"
-              placeholder="Login"
+              placeholder="Email"
               autoComplete="username"
               className="input"
             />
             <Field
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder="Mot de passe"
               autoComplete="current-password"
               className="input"
             />
@@ -77,7 +69,7 @@ const Login = () => {
             <div className="text-sm">
               <Link to="/forgot-password">
                 <span className="cursor-pointer font-medium text-primary-dark hover:text-primary">
-                  Forgot your password?
+                  Mot de passe oublié?
                 </span>
               </Link>
             </div>
@@ -86,15 +78,9 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="btn btn-primary group relative w-full"
+              className="btn btn-green group relative w-full"
             >
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                <LockClosedIcon
-                  className="h-5 w-5 text-primary-dark group-hover:text-primary-light"
-                  aria-hidden="true"
-                />
-              </span>
-              Sign in
+              SE CONNECTER
             </button>
           </div>
           {errorLog && (

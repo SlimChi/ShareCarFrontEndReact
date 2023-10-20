@@ -24,7 +24,7 @@
 }
 
 .btn-green{
-    @apply text-white bg-green-600 hover:bg-green-700 hover:text-white active:ring-green-500 ;
+    @apply text-white bg-[#57b526] hover:bg-[#81ff00] hover:text-white active:ring-[#57b526] ;
 }
 
 .btn-yellow{

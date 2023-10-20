@@ -20,8 +20,15 @@ const LoginView = () => {
     }, []);
 
     return (
-        <div className="flex h-full items-center justify-center">
-            <Login className="" />
+      
+        <div className="flex items-center ml-[15%]">
+            <div className="flex  w-full items-center ">
+                <Login className="" />
+            </div>
+            <div className="flex  w-full items-center ">
+                <img src='../../../../src/Images/Logo_ShareCar.png ' className="opacity-30 w-[40rem]" />
+            </div>
+    
         </div>
     );
 };
