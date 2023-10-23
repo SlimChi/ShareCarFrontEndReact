@@ -1,8 +1,6 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 
-// import { URL_LOGIN, URL_REGISTER } from "../../constants/urls/urlFrontEnd";
-
 import { PiUserSquareLight } from "react-icons/pi";
 import { Link } from 'react-router-dom';
 import { URL_LOGIN, URL_REGISTER } from '../../constants/urls/urlFrontEnd';

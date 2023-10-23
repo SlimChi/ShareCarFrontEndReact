@@ -5,7 +5,9 @@ import { ROLE_ADMIN } from "../constants/rolesConstant";
 import * as URL from "../constants/urls/urlFrontEnd";
 import AdminHomeView from "../views/AdminHomeView";
 import HomeView from "../views/HomeView";
+import ProfilView from "../views/ProfilView";
 import LoginView from "../views/LoginView";
+import ModifProfilView from "../views/ModifProfilView";
 import { PrivateRoute } from "./PrivateRoute";
 
 /**
@@ -32,6 +34,9 @@ const Routes = () => {
         }
       />
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
+      <Route path={URL.URL_PROFIL} element={<ProfilView />} />
+      <Route path={URL.URL_MODIF_PROFIL} element={<ModifProfilView />} />
+
     </RoutesContainer>
   );
 };

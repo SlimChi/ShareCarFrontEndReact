@@ -38,8 +38,6 @@ const Login = () => {
         </h2>
       </div>
 
-      {/* <hr /> */}
-
       <Formik
         initialValues={{
           username: "",
@@ -50,10 +48,10 @@ const Login = () => {
         <Form className="mt-8 space-y-6">
           <div className="flex flex-col space-y-3 rounded-md  shadow-sm">
             <Field
-              type="text"
-              name="username"
+              type="Email"
+              name="Email"
               placeholder="Email"
-              autoComplete="username"
+              autoComplete="Email"
               className="input"
             />
             <Field

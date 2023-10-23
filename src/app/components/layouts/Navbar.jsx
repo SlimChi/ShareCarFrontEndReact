@@ -20,7 +20,7 @@ const Navbar = () => {
   const isLoggued = useSelector(selectIsLogged);
 
   return (
-    <div className="absolute mx-auto w-full bg-[#114076] px-4 shadow-sm sm:px-6">
+    <div className="fixed z-50 mx-auto w-full bg-[#114076] px-4 shadow-sm sm:px-6">
       <div className="flex items-center justify-between  md:justify-start md:space-x-10">
         <div className="flex flex-row ">
           <Link to={URL_HOME}>

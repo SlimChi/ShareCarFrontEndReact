@@ -40,7 +40,7 @@ const App = () => {
     <BrowserRouter>
       <div className="relative flex h-full cursor-default flex-col bg-white">
         <Navbar />
-        <main className="mt-24 grow">
+        <main className="grow">
           <Routes />
         </main>
         <ToastContainer
