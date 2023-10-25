@@ -1,36 +1,31 @@
-import { LockClosedIcon } from "@heroicons/react/20/solid";
+
 import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import axios from "axios";
 
 import { URL_HOME, URL_REGISTER } from "../../constants/urls/urlFrontEnd";
-import { signIn } from "../../redux-store/authenticationSlice";
-import { authenticate } from "./../../api/backend/account";
 
-/**
- * Component Login
- *
- * @author Peter Mollet
- */
+
+
 const Login = () => {
-  const [errorLog, setErrorLog] = useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const [error, setError] = React.useState(null);
+  const [user, setUser] = React.useState(null);
 
-
-
-  const handleLogin = (values) => {
-    authenticate(values)
-      .then((res) => {
-        if (res.status === 200 && res.data.id_token) {
-          dispatch(signIn(res.data.id_token));
-          navigate(URL_HOME);
-        }
-      })
-      .catch(() => setErrorLog(true));
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUser({ ...user, [name]: value });
   };
+
+  const handleLogin = async () => {
+      
+      try {
+          const response = await axios.post('http://127.0.0.1:8000/connexion', user);
+          setUser(response.data);
+      } catch (error) {
+          setError(error.response.data.error);
+      }
+  }
 
   return (
     <div className="w-full max-w-md space-y-8 rounded-md  p-4 py-12 px-4  sm:px-6 lg:px-8">
@@ -46,7 +41,7 @@ const Login = () => {
           email: "",
           password: "",
         }}
-        onSubmit={handleLogin}
+        onSubmit={handleChange}
       >
         <Form className="mt-8 space-y-6">
           <div className="flex flex-col space-y-3 rounded-md  shadow-sm">
@@ -78,13 +73,13 @@ const Login = () => {
 
           <div >
             <button
-              type="submit"
               className="btn btn-green group relative w-full mt-6"
+              onClick={handleLogin}
             >
               SE CONNECTER
             </button>
           </div>
-          {errorLog && (
+          {error && (
             <div className="flex justify-center">
               <small className="text-sm italic text-red-600">
                 Login/Password incorrect(s)

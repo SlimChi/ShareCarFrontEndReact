@@ -27,7 +27,7 @@ const ModifInfoUser = () => {
             </div>
             
             
-            <div className="flex flex-col justify-between mt-8 ">
+            <div className="flex flex-col justify-between mt-8 w-[35rem]">
                 <div className="flex flex-col justify-evenly h-[15rem]">
                     <input 
                         type="text"
