@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Menu, Transition } from '@headlessui/react'
 import { Link } from 'react-router-dom';
+
 import { URL_MODIF_PROFIL } from '../../constants/urls/urlFrontEnd';
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+
+
+
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+
 import BioUser from "../components/user/BioUser";
 import InfoUser from "../components/user/InfoUser";
 import Sidebar from "../components/user/SIdeBar";
@@ -10,7 +10,19 @@ import Sidebar from "../components/user/SIdeBar";
 
 
 export default function ProfilView () {
+    // const { id } = useParams();
+    // const [OneUser, setOneUsers] = useState([]);
 
+    // const fetchDataUser = () => {
+    //     axios.get (`http://127.0.0.1:8000/api/users/${id}`)
+    //     .then((res) => {
+    //         setOneUsers(res.data);
+    //     })
+    // }
+
+    // useEffect(() => {
+    //     fetchDataUser();
+    // }, [])
 
     return(
         <div className="">

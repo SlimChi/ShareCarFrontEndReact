@@ -3,6 +3,7 @@ import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import { URL_HOME, URL_REGISTER } from "../../constants/urls/urlFrontEnd";
 import { signIn } from "../../redux-store/authenticationSlice";
@@ -17,6 +18,8 @@ const Login = () => {
   const [errorLog, setErrorLog] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+
 
   const handleLogin = (values) => {
     authenticate(values)
@@ -40,7 +43,7 @@ const Login = () => {
 
       <Formik
         initialValues={{
-          username: "",
+          email: "",
           password: "",
         }}
         onSubmit={handleLogin}
@@ -114,5 +117,7 @@ const Login = () => {
     </div>
   );
 };
+
+
 
 export default Login;

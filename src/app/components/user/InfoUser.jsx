@@ -3,7 +3,7 @@ import React from "react";
 import { IoIosStar } from "react-icons/io";
 
 
-const InfoUser = () => {
+const InfoUser = ({}) => {
     return (
         <div className="flex flex-col justify-between h-[33rem]">
             <div className="mt-4 flex justify-between">
@@ -12,25 +12,34 @@ const InfoUser = () => {
                     <p className="">4.5 / 5</p>
                 </div>
                 <div className="flex flex-col ">
-                    <p>Membre depuis : <em>oct 2023</em></p>
-                    <p>Nbre de points: <em>2 500</em></p>
+                    {/* <p>Membre depuis : <em>{oneUser.date}</em></p> */}
+                    <p>Membre depuis : <em>Oct 2023</em></p>
+                    <p>Nbre de points: <em>2 500pt</em></p>
                 </div>
             </div>
 
             <div className="flex flex-col justify-between mt-8 ">
                 <div className="flex flex-col justify-evenly h-[15rem]">
-                    <p>Nom</p>
-                    <p>Prenom</p>
-                    <p>Pseudo</p>
-                    <p>Age</p>
-                    <p>Email</p>
+                    {/* <p>{oneUser.firstname}</p>
+                    <p>{oneUser.lastname}</p>
+                    <p>{oneUser.username}</p>
+                    <p>{oneUser.age}</p>
+                    <p>{oneUser.email}</p> */}
+                    <p>firstname</p>
+                    <p>lastname</p>
+                    <p>username</p>
+                    <p>age</p>
+                    <p>email</p>
                 </div>
                 <div className="flex flex-col justify-evenly h-[7rem]">
-                    <p>Adresse</p>
+                    {/* <p>{oneUser.address}</p> */}
+                    <p>address</p>
                 
                     <div className="flex flex-row">
-                        <p>CodePostal</p>
-                        <p className="ml-8">Ville</p>
+                        {/* <p>{oneUser.zipcode}</p> */}
+                        <p>zipcode</p>
+                        {/* <p className="ml-8">{oneUser.city}</p> */}
+                        <p className="ml-8">city</p>
                     </div>
                 </div>
             </div>
