@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
+import { Link } from "react-router-dom";
 
 
 
@@ -12,6 +13,20 @@ import ModifInfoUser from "../components/ModifUser/ModifInfoUser";
 
 
 export default function ModifProfilView () {
+
+    const { id } = useParams();
+    const [oneUser, setOneUsers] = useState([]);
+
+    const fetchDataUser = () => {
+        axios.get (`http://127.0.0.1:8000/api/users/${id}`)
+        .then((res) => {
+            setOneUsers(res.data);
+        })
+    }
+
+    useEffect(() => {
+        fetchDataUser();
+    }, [])
 
     const formik = useFormik({
         initialValues: {

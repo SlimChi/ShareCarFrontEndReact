@@ -11,7 +11,7 @@ import Sidebar from "../components/user/SIdeBar";
 
 export default function ProfilView () {
     // const { id } = useParams();
-    // const [OneUser, setOneUsers] = useState([]);
+    // const [oneUser, setOneUsers] = useState([]);
 
     // const fetchDataUser = () => {
     //     axios.get (`http://127.0.0.1:8000/api/users/${id}`)

@@ -10,8 +10,6 @@ import { BsPen } from "react-icons/bs";
 const ModifInfoUser = () => {
 
     
-
-
     return (
         <div className="flex flex-col justify-between h-[33rem]">
             <div className="mt-4 flex justify-between">
@@ -36,6 +34,7 @@ const ModifInfoUser = () => {
                         id="firstname"
                         name="firstname"
                         placeholder="Nom"
+                        // placeholder="{oneUser.firstname}"
                         className="input"/>
                     
                     <input 
@@ -43,6 +42,7 @@ const ModifInfoUser = () => {
                         id="lastname"
                         name="lastname"
                         placeholder="Prenom"
+                        // placeholder="{oneUser.lastname}"
                         className="input"/>
                   
                     <input 
@@ -50,6 +50,7 @@ const ModifInfoUser = () => {
                         id="username"
                         name="username"
                         placeholder="Pseudo"
+                        // placeholder="{oneUser.username}"
                         className="input"/>
            
                     <input 
@@ -57,6 +58,7 @@ const ModifInfoUser = () => {
                         id="date"
                         name="date"
                         placeholder="Date de naissance"
+                        // placeholder="{oneUser.date}"
                         className="input"/>
                 
                     <input 
@@ -64,6 +66,7 @@ const ModifInfoUser = () => {
                         id="email"
                         name="email"
                         placeholder="Email"
+                        // placeholder="{oneUser.email}"
                         className="input"/>
                    
                 </div>
@@ -74,6 +77,7 @@ const ModifInfoUser = () => {
                         id="adresse"
                         name="adresse"
                         placeholder="Adresse"
+                        // placeholder="{oneUser.address}"
                         className="input"/>
                 
                     <div className="flex flex-row">
@@ -82,12 +86,14 @@ const ModifInfoUser = () => {
                             id="zipcode"
                             name="zipcode"
                             placeholder="Code postal"
+                            // placeholder="{oneUser.zipcode}"
                             className="input w-[10rem]"/>
                         <input
                             type="text"
                             id="city" 
                             name="city" 
                             placeholder="Ville"
+                            // placeholder="{oneUser.city}"
                             className="input"/>
                     </div>
                 </div>
