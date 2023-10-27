@@ -33,7 +33,7 @@ function Register() {
         onSubmit: () => {
             axios({
                 method: 'post',
-                url: 'http://127.0.0.1:8000/inscription',
+                url: 'https://127.0.0.1:8000/inscription',
                 data: {
                     nom: formik.values.nom,
                     prenom: formik.values.prenom,
@@ -76,7 +76,11 @@ function Register() {
                             onBlur={formik.handleBlur}
                             value={formik.values.nom}
                             placeholder="nom" />
-
+                        <span>
+                            {formik.touched.nom && formik.errors.nom ? (
+                                <>{formik.errors.nom}</>
+                            ) : null}
+                        </span>
                         <input
 
                             className="input"
@@ -87,8 +91,8 @@ function Register() {
                             value={formik.values.prenom}
                             placeholder="prenom" />
                         <span>
-                            {formik.touched.email && formik.errors.email ? (
-                                <>{formik.errors.email}</>
+                            {formik.touched.prenom && formik.errors.prenom ? (
+                                <>{formik.errors.prenom}</>
                             ) : null}
                         </span>
                         <input
