@@ -7,20 +7,20 @@ import { URL_ADMIN_HOME } from '../constants/urls/urlFrontEnd';
 import { selectHasRole } from '../redux-store/authenticationSlice';
 
 const HomeView = () => {
-    const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
-    const navigate = useNavigate();
+    // const isAdmin = useSelector((state) => selectHasRole(state, ROLE_ADMIN));
+    // const navigate = useNavigate();
     return (
         <div>
             <p className="font-extrabold text-primary">HOME</p>
 
-            {isAdmin && (
+            {/* {isAdmin && (
                 <button
                     className="btn btn-primary"
                     onClick={() => navigate(URL_ADMIN_HOME)}
                 >
                     Admin
                 </button>
-            )}
+            )} */}
         </div>
     );
 };

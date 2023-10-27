@@ -6,18 +6,9 @@ import { URL_HOME } from '../constants/urls/urlFrontEnd';
 import Login from './../components/account/Login';
 import { selectIsLogged } from './../redux-store/authenticationSlice';
 
-/**
- * View/Page Login
- *
- * @author Peter Mollet
- */
-const LoginView = () => {
-    const navigate = useNavigate();
-    const isAuthenticated = useSelector(selectIsLogged);
 
-    useEffect(() => {
-        if (isAuthenticated) navigate(URL_HOME);
-    }, []);
+const LoginView = () => {
+
 
     return (
       

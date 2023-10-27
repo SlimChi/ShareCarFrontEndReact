@@ -46,8 +46,8 @@ function Register() {
             }).then(function (response) {
                 console.log(response.data);
                 if (response.data.status === true) {
-                    // navigate("/connexion");
-                    alert(response.data.message);
+                    window.location.href = URL_LOGIN
+                    // alert(response.data.message);
                 } else {
                     return (response.data.message);
                 }

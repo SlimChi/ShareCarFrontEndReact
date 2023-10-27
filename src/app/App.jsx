@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import Navbar from "./components/layouts/Navbar";
-import { selectIsLogged, signIn } from "./redux-store/authenticationSlice";
+// import { selectIsLogged, signIn } from "./redux-store/authenticationSlice";
 import Routes from "./routes/Routes";
-import { getToken } from "./services/tokenServices";
+// import { getToken } from "./services/tokenServices";
 import Footer from "./components/layouts/Footer";
 
 const contextClass = {
@@ -25,16 +25,16 @@ const contextClass = {
  * @author Peter Mollet
  */
 const App = () => {
-  const dispatch = useDispatch();
-  const [isLogin, setIsLogin] = useState(true);
+  // const dispatch = useDispatch();
+  // const [isLogin, setIsLogin] = useState(true);
 
-  useEffect(() => {
-    const token = getToken();
-    if (token) dispatch(signIn(token));
-    setIsLogin(false);
-  }, []);
+  // useEffect(() => {
+  //   const token = getToken();
+  //   if (token) dispatch(signIn(token));
+  //   setIsLogin(false);
+  // }, []);
 
-  if (isLogin) return null;
+  // if (isLogin) return null;
 
   return (
     <BrowserRouter>

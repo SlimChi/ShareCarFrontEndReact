@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import BioUser from "../components/user/BioUser";
-import InfoUser from "../components/user/InfoUser";
 import Sidebar from "../components/layouts/SideBar";
+import NewVehicle from "../components/Vehicle/NewVehicle";
+import OptionTravel from "../components/Vehicle/OptionTravel";
+import FormNewVehicle from "../components/Vehicle/FormNewVehicle";
 
 
 
 
-export default function ProfilView () {
+
+export default function VehicleView () {
     // const { id } = useParams();
     // const [oneUser, setOneUsers] = useState([]);
 
@@ -27,18 +29,22 @@ export default function ProfilView () {
     return(
         <div className="">
             
-                <img src="../../../../src/Images/covoit2.png" alt="" className="object-cover h-[30rem] w-full"/>
+                <img src="../../../../src/Images/Car2.png" alt="" className="object-cover h-[30rem] w-full"/>
                 
                     <Sidebar/>
 
             
-            <div className="flex flex-row justify-evenly">
+            <div className="flex flex-coljustify-evenly">
                <div className="w-[20rem]">
-                    <BioUser/>
+                    <FormNewVehicle />
                 </div>
                 <div className="w-[50rem]">
-                    <InfoUser/>
+                    <OptionTravel />
                 </div>
+            </div>
+
+            <div className="">
+                <NewVehicle />
             </div>
         </div>
     )

@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { URL_MODIF_PROFIL } from '../../constants/urls/urlFrontEnd';
+import { 
+    URL_MODIF_PROFIL, 
+    URL_DELETE_PROFIL, 
+    URL_MODIF_PASSWORD, 
+    URL_VEHICLES,
+  } from '../../constants/urls/urlFrontEnd';
 
 
 
@@ -20,21 +25,20 @@ const Sidebar = () => {
       </button>
 
       <ul className="p-8 mt-[1rem] flex flex-col justify-evenly h-full">
-      {/* {({ active }) => ( */}
-        <Link to={URL_MODIF_PROFIL}
-          >
+
+        <Link to={URL_MODIF_PROFIL}>
           <li className='bg-[#114076] text-white h-[3.5rem] flex justify-center items-center'>Modifier le profil</li>
         </Link>
         
-        <Link>
+        <Link to={URL_DELETE_PROFIL}>
           <li className='bg-[#114076] text-white h-[3.5rem] flex justify-center items-center'>Supprimer le compte</li>
         </Link>
 
-        <Link>
+        <Link >
         <li className='bg-[#114076] text-white h-[3.5rem] flex justify-center items-center'>Gérer mes points</li>
         </Link>
         
-        <Link>
+        <Link to={URL_MODIF_PASSWORD}>
         <li className='bg-[#114076] text-white h-[3.5rem] flex justify-center items-center'>Modifier le mot de passe</li>
         </Link>
         
@@ -46,10 +50,10 @@ const Sidebar = () => {
         <li className='bg-[#114076] text-white h-[4rem] flex justify-center items-center'>Historique des voyages</li>
         </Link>
         
-        <Link>
+        <Link to={URL_VEHICLES}>
         <li className='bg-[#114076] text-white h-[4rem] flex justify-center items-center'>Mes véhicules</li>
         </Link>
-                      {/* )} */}
+                    
       </ul>
     </div>
   );
