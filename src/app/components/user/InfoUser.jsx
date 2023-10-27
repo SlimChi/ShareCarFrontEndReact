@@ -3,7 +3,7 @@ import React from "react";
 import { IoIosStar } from "react-icons/io";
 
 
-const InfoUser = ({}) => {
+const InfoUser = () => {
     return (
         <div className="flex flex-col justify-between h-[33rem]">
             <div className="mt-4 flex justify-between">
@@ -20,9 +20,9 @@ const InfoUser = ({}) => {
 
             <div className="flex flex-col justify-between mt-8 ">
                 <div className="flex flex-col justify-evenly h-[15rem]">
-                    {/* <p>{oneUser.firstname}</p>
-                    <p>{oneUser.lastname}</p>
-                    <p>{oneUser.username}</p>
+                    {/* <p>{oneUser.prénom}</p>
+                    <p>{oneUser.nom}</p>
+                    <p>{oneUser.pseudo}</p>
                     <p>{oneUser.age}</p>
                     <p>{oneUser.email}</p> */}
                     <p>firstname</p>
@@ -36,9 +36,9 @@ const InfoUser = ({}) => {
                     <p>address</p>
                 
                     <div className="flex flex-row">
-                        {/* <p>{oneUser.zipcode}</p> */}
+                        {/* <p>{oneUser.code_postal}</p> */}
                         <p>zipcode</p>
-                        {/* <p className="ml-8">{oneUser.city}</p> */}
+                        {/* <p className="ml-8">{oneUser.ville}</p> */}
                         <p className="ml-8">city</p>
                     </div>
                 </div>

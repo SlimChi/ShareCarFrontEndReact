@@ -20,7 +20,7 @@ export default function SendPassword () {
                 </div>
 
                 <button type="submit" className="btn-green w-[15rem] h-[3rem] mt-[5rem]">
-                    Enregistrer
+                    Envoyer
                 </button>
         </form>
         </>

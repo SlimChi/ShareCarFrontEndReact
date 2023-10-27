@@ -14,7 +14,7 @@ export default function ProfilView () {
     // const [oneUser, setOneUsers] = useState([]);
 
     // const fetchDataUser = () => {
-    //     axios.get (`http://127.0.0.1:8000/api/users/${id}`)
+    //     axios.get (`http://127.0.0.1:8000/un utilisateur/${id}`)
     //     .then((res) => {
     //         setOneUsers(res.data);
     //     })

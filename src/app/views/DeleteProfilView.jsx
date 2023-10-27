@@ -22,7 +22,7 @@ export default function ModifProfilView () {
                 <Sidebar/>
 
         
-            <div className="flex flex-col justify-evenly items-center mt-8">
+            <div className="flex flex-col justify-evenly items-center mt-8 mb-12">
                     <h4 className="w-[25rem]" >
                     Etes vous sûre de vouloir supprimer votre compte ?
                     </h4>

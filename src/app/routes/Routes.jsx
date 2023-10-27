@@ -21,12 +21,6 @@ import SendPasswordView from "../views/SendPasswordView";
 import VehicleView from "../views/VehicleView";
 
 
-/**
- * Routes of the application
- * with public and private route
- *
- * @author Peter Mollet
- */
 const Routes = () => {
   return (
     <RoutesContainer>
@@ -54,7 +48,7 @@ const Routes = () => {
 
         <Route path={URL.URL_MODIF_PASSWORD} element={<ModifPasswordView />} />
         <Route path={URL.URL_SEND_PASSWORD} element={<SendPasswordView />} />
-        {/* <Route path={URL.URL_DELETE_PROFIL} element={<DeleteProfilView />} /> */}
+        
         <Route path={URL.URL_VEHICLES} element={<VehicleView />} />
       {/* </PrivateRoute> */}
     </RoutesContainer>

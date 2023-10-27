@@ -10,7 +10,9 @@ import Sidebar from "../components/layouts/SideBar";
 
 
 
-export default function ModifProfilView () {
+export default function ModifPasswordView () {
+
+
 
     return (
         <div className="">
@@ -23,9 +25,10 @@ export default function ModifProfilView () {
         
             <div className="flex flex-col justify-evenly items-center mt-4 h-[30rem]">
                 <h2 className="text-center text-2xl font-bold text-[#114076]">
-                    Modification de mon mot de passe
+                    Modification du mot de passe
                 </h2>
-                    <ModifPassword/>
+
+                <ModifPassword/>
 
                 
             </div>

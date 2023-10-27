@@ -6,6 +6,7 @@ import Sidebar from "../components/layouts/SideBar";
 import NewVehicle from "../components/Vehicle/NewVehicle";
 import OptionTravel from "../components/Vehicle/OptionTravel";
 import FormNewVehicle from "../components/Vehicle/FormNewVehicle";
+import GestionImagesVehicle from "../components/Vehicle/GestionImagesVehicle";
 
 
 
@@ -33,12 +34,14 @@ export default function VehicleView () {
                 
                     <Sidebar/>
 
-            
-            <div className="flex flex-coljustify-evenly">
-               <div className="w-[20rem]">
+                <h4 className="text-center uppercase font-bold text-[#114076] mt-8">Gestion des véhicules</h4>
+            <div className="flex flex-col justify-between">
+                <div className="flex h-[30rem] mt-16">
                     <FormNewVehicle />
+                    <GestionImagesVehicle />
                 </div>
-                <div className="w-[50rem]">
+                
+                <div className="">
                     <OptionTravel />
                 </div>
             </div>

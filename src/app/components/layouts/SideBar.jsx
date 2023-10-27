@@ -20,7 +20,7 @@ const Sidebar = () => {
 
   return (
     <div className={`fixed inset-y-0 right-0 w-[22rem] bg-blue-200 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform ease-in-out duration-300`}>
-      <button className="relative top-[7rem] right-[1.5rem] text-white" onClick={toggleSidebar}>
+      <button className="relative top-[7rem] right-[1.5rem] text-[#57B526] bg-white rounded-full" onClick={toggleSidebar}>
         |||
       </button>
 
