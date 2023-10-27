@@ -1,10 +1,12 @@
 
+import { Field, Form, Formik } from "formik";
 import React, { useState } from "react";
 import { Link} from "react-router-dom";
 import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { URL_HOME, URL_REGISTER } from "../../constants/urls/urlFrontEnd";
+import { URL_HOME, URL_PROFIL, URL_REGISTER } from "../../constants/urls/urlFrontEnd";
+import { parse } from "postcss";
 
 function Login() {
 
@@ -26,17 +28,17 @@ function Login() {
       onSubmit: () => {
           axios({
               method: 'post',
-              url: 'http://127.0.0.1:8000/connexion',
+              url: 'https://127.0.0.1:8000/connexion',
               data: {
                   email: formik.values.email,
                   mot_de_passe: formik.values.mot_de_passe,
               }
           }).then(function (response) {
-              console.log(response.data);
-              if (response.data.status === true) {
-                  alert(response.data.message);
-                  // window.location.href = URL_LOGIN;
-                  // alert(response.data.message);
+              console.log(response.data); 
+              const id = response.data.id
+              localStorage.setItem('id', id);
+              if (response.data) {
+                  window.location.href = URL_PROFIL
               } else {
                   return (response.data.message);
               }
@@ -87,40 +89,13 @@ function Login() {
                           ) : null}
                       </span>
                      
-                      <div className="flex items-center">
-                        <input type="checkbox" className="checkbox mt-4"/>
-                        <p className="ml-2 text-xs text-[#114076] mt-4">Rester connecté</p>
-                      </div>
-
                       </div>
                       <button
                           type="submit"
                           className="btn-green block w-full h-[3rem] mt-16 mb-8">
-                     SE CONNECTER
+                     Se Connecter
                       </button>
                      
-
-                      <div className=" flex justify-end mb-8">
-                        <div className="text-sm ">
-                          <Link to="/sendpassword" >
-                            <span className=" cursor-pointer font-medium text-primary-dark italic hover:text-primary ">
-                              Mot de passe oublié?
-                            </span>
-                          </Link>
-                        </div>
-                      </div>
-
-                      <div>
-                        <Link to={URL_REGISTER}>
-                          <button
-                            type="submit"
-                            className="btn btn-green-inverse group relative w-full"
-                          >
-                            CREER UN COMPTE
-                          </button>
-                        </Link>
-                      </div>
-
                   </form>
      
 
@@ -133,3 +108,5 @@ function Login() {
 
 
 export default Login;
+
+
