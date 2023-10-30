@@ -10,19 +10,7 @@ import Sidebar from "../components/layouts/SideBar";
 
 
 export default function ProfilView () {
-    // const { id } = useParams();
-    // const [oneUser, setOneUsers] = useState([]);
 
-    // const fetchDataUser = () => {
-    //     axios.get (`http://127.0.0.1:8000/un utilisateur/${id}`)
-    //     .then((res) => {
-    //         setOneUsers(res.data);
-    //     })
-    // }
-
-    // useEffect(() => {
-    //     fetchDataUser();
-    // }, [])
 
     return(
         <div className="">
@@ -37,7 +25,7 @@ export default function ProfilView () {
                     <BioUser/>
                 </div>
                 <div className="w-[50rem]">
-                    <InfoUser/>
+                    <InfoUser />
                 </div>
             </div>
         </div>

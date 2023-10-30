@@ -28,15 +28,21 @@ function Login() {
       onSubmit: () => {
           axios({
               method: 'post',
-              url: 'https://127.0.0.1:8000/connexion',
+              url: 'https://127.0.0.1:8000/api/connexion',
               data: {
                   email: formik.values.email,
                   mot_de_passe: formik.values.mot_de_passe,
               }
           }).then(function (response) {
               console.log(response.data); 
-              const id = response.data.id
-              localStorage.setItem('id', id);
+            //   const id = response.data.id
+            //   localStorage.setItem('id', id)
+
+             const token = response.data.token
+             localStorage.setItem('token', token)
+
+
+
               if (response.data) {
                   window.location.href = URL_PROFIL
               } else {
