@@ -98,7 +98,7 @@ function Login() {
                       </div>
                       <button
                           type="submit"
-                          className="btn-green block w-full h-[3rem] mt-16 mb-8">
+                          className="btn-green block w-full h-[3rem] mt-16 mb-8 rounded-md">
                      Se Connecter
                       </button>
                      

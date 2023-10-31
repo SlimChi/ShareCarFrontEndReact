@@ -3,13 +3,13 @@
 @layer base {
 
     html{
-        @apply h-full 
+        @apply h-full
     }
     body{
-        @apply h-full 
+        @apply h-full
     }
 
-    
+
     /* TYPOGRAPHIE */
     h1{
         @apply text-6xl
