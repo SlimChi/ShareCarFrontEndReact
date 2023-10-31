@@ -13,19 +13,7 @@ import ModifInfoUser from "../components/ModifUser/ModifInfoUser";
 
 export default function ModifProfilView () {
 
-    // const { id } = useParams();
-    // const [oneUser, setOneUsers] = useState([]);
 
-    // const fetchDataUser = () => {
-    //     axios.get (`http://127.0.0.1:8000/un_utilisateur/{id}`)
-    //     .then((res) => {
-    //         setOneUsers(res.data);
-    //     })
-    // }
-
-    // useEffect(() => {
-    //     fetchDataUser();
-    // }, [])
 
 
 

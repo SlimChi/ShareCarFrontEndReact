@@ -14,13 +14,20 @@ const InfoUser = () => {
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
-            url: 'https://127.0.0.1:8000/api/profil',
+            url: 'http://127.0.0.1:8000/api/profil',
         }).then(function (response) {
             console.log(response.data);
             setOneUser(response.data);
 
         })
     }, []);
+
+    const calculateAge = () => {
+        let today = new Date();
+        let birthDate = new Date(oneUser.date_de_naissance);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        return age;
+      };
 
     return (
         <div className="flex flex-col justify-between h-[33rem]">
@@ -38,16 +45,12 @@ const InfoUser = () => {
 
             <div className="flex flex-col justify-between mt-8 ">
                 <div className="flex flex-col justify-evenly h-[15rem]">
-                    <p>{oneUser.prénom}</p>
+                    <p>{oneUser.prenom}</p>
                     <p>{oneUser.nom}</p>
                     <p>{oneUser.pseudo}</p>
-                    <p>{oneUser.age}</p>
+                    <p>{calculateAge()}</p>
                     <p>{oneUser.email}</p>
-                    {/* <p>firstname</p>
-                    <p>lastname</p>
-                    <p>username</p>
-                    <p>age</p>
-                    <p>email</p> */}
+
                 </div>
                 <div className="flex flex-col justify-evenly h-[7rem]">
                     {/* <p>{oneUser.address}</p> */}

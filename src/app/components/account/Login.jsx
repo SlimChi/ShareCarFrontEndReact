@@ -28,7 +28,7 @@ function Login() {
       onSubmit: () => {
           axios({
               method: 'post',
-              url: 'https://127.0.0.1:8000/api/connexion',
+              url: 'http://127.0.0.1:8000/api/connexion',
               data: {
                   email: formik.values.email,
                   mot_de_passe: formik.values.mot_de_passe,
@@ -94,16 +94,27 @@ function Login() {
                               <>{formik.errors.mot_de_passe}</>
                           ) : null}
                       </span>
+                    <div>
+                        <input type="checkbox" id="remember-me" />
+                        <span className="ml-2 text-sm text-[#114076]">Se souvenir de moi</span>
+                    </div>
+                      
                      
                       </div>
                       <button
                           type="submit"
-                          className="btn-green block w-full h-[3rem] mt-16 mb-8 rounded-md">
-                     Se Connecter
+                          className="btn-green block w-full h-[3rem] mt-16 mb-4">
+                     SE CONNECTER
                       </button>
                      
+                     <Link to={URL_REGISTER}> 
+                        <p className="text-end text-sm text-[#114076] italic">mot de passe oublié</p>
+                     </Link>
                   </form>
-     
+                <button
+                   className="btn-green-inverse block w-full h-[3rem] mt-16 mb-8">
+                     CREER UN COMPTE
+                </button>
 
 
           </div>
