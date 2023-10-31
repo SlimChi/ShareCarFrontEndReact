@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -10,16 +10,35 @@ import { BsPen } from "react-icons/bs";
 
 
 const ModifInfoUser = () => {
+
+    const [oneUser, setOneUser] = useState([]);
+
+    useEffect(() => {
+        axios({
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            },
+            url: 'http://127.0.0.1:8000/api/profil',
+        }).then(function (response) {
+            console.log(response.data);
+            setOneUser(response.data);
+
+        })
+    }, []);
+
     const formik = useFormik({
         initialValues: {
-          nom: '',
-          prenom: '',
-          pseudo: '',
-          date_de_naissance: '',
-          email: '',
-          adresse: '',
-          code_postal: '',
-          ville: '',
+          nom:  oneUser.nom,
+          prenom:  oneUser.prenom,
+          pseudo: oneUser.pseudo,
+          date_de_naissance: '' || oneUser.date_de_naissance,
+          email: oneUser.email,
+          adresse: '' || oneUser.adresse,
+          code_postal: '' || oneUser.code_postal,
+          ville: '' || oneUser.ville,
         },validationSchema: Yup.object({
             email: Yup.string()
                 .email("Adresse e-mail invalide")
@@ -27,17 +46,22 @@ const ModifInfoUser = () => {
 
         onSubmit: () => {
             axios({
-                method: 'post',
-                url: `http://127.0.0.1:8000/profil`, 
+                method: 'put',
+                url: `http://127.0.0.1:8000/api/profil_modif`, 
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                },
                 data: {
-                    // nom: formik.values.nom,
-                    // prenom: formik.values.prenom,
-                    // pseudo: formik.values.pseudo,
-                    // email: formik.values.email,
-                    date_de_naissance: formik.values.date_de_naissance, 
-                    adresse: formik.values.adresse,
-                    code_postal: formik.values.code_postal,
-                    ville: formik.values.ville,
+                    nom: formik.values.nom ?? oneUser.nom,
+                    prenom: formik.values.prenom ?? oneUser.prenom,
+                    pseudo: formik.values.pseudo ?? oneUser.pseudo,
+                    email: formik.values.email ?? oneUser.email,
+                    date_de_naissance: formik.values.date_de_naissance ?? oneUser.date_de_naissance, 
+                    adresse: formik.values.adresse ?? oneUser.adresse,
+                    code_postal: formik.values.code_postal ?? oneUser.code_postal,
+                    ville: formik.values.ville ?? oneUser.ville,
                     // roles: formik.values.roles
 
                 }
@@ -45,7 +69,6 @@ const ModifInfoUser = () => {
                 console.log(response.data);
                 if (response.data.status === true) {
                     window.location.href = URL_PROFIL
-                    // alert(response.data.message);
                 } else {
                     return (response.data.message);
                 }
@@ -80,8 +103,7 @@ const ModifInfoUser = () => {
                         type="text"
                         id="nom"
                         name="nom"
-                        // placeholder={formik.values.nom}
-                        placeholder="Nom"
+                        placeholder={oneUser.nom}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.nom}
@@ -91,8 +113,7 @@ const ModifInfoUser = () => {
                         type="text"
                         id="prenom"
                         name="prenom"
-                        placeholder="Prenom"
-                        // placeholder={formik.values.prenom}
+                        placeholder={oneUser.prenom}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.prenom}
@@ -102,8 +123,7 @@ const ModifInfoUser = () => {
                         type="text"
                         id="pseudo"
                         name="pseudo"
-                        placeholder="Pseudo"
-                        // placeholder={formik.values.pseudo}
+                        placeholder={oneUser.pseudo}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.pseudo}
@@ -113,8 +133,7 @@ const ModifInfoUser = () => {
                         type="date"
                         id="date_de_naissance"
                         name="date_de_naissance"
-                        placeholder="Date de naissance"
-                        // placeholder={formik.values.date_de_naissance}
+                        placeholder={formik.values.date_de_naissance}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.date_de_naissance}
@@ -124,8 +143,7 @@ const ModifInfoUser = () => {
                         type="Email"
                         id="email"
                         name="email"
-                        placeholder="Email"
-                        // placeholder={formik.values.email}
+                        placeholder={oneUser.email}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.email}
@@ -142,8 +160,7 @@ const ModifInfoUser = () => {
                         type="text"
                         id="adresse"
                         name="adresse"
-                        placeholder="Adresse"
-                        // placeholder={formik.values.adresse}
+                        placeholder={oneUser.adresse}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.adresse}
@@ -154,8 +171,7 @@ const ModifInfoUser = () => {
                             type="text"
                             id="code_postal"
                             name="code_postal"
-                            placeholder="Code postal"
-                            // placeholder="{oneUser.code_postal}"
+                            placeholder={oneUser.code_postal}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             value={formik.values.code_postal}
@@ -163,9 +179,8 @@ const ModifInfoUser = () => {
                         <input
                             type="text"
                             id="ville" 
-                            name="ville" 
-                            placeholder="Ville"
-                            // placeholder={formik.values.ville}
+                            name="ville"
+                            placeholder={oneUser.ville}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             value={formik.values.ville}

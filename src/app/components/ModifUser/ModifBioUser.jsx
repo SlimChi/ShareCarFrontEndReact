@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 
 import { BsPen } from "react-icons/bs";
 import { MdOutlineAddAPhoto } from "react-icons/md";
 
 
 const ModifBioUser = () => {
+
+    const [oneUserBio, setOneUserBio] = useState([]);
+
+    useEffect(() => {
+        axios({
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            },
+            url: 'http://127.0.0.1:8000/api/profil',
+        }).then(function (response) {
+            console.log(response.data);
+            setOneUserBio(response.data);
+
+        })
+    }, []);
+
+
     const formik = useFormik({
         initialValues: {
           biographie: '',
@@ -16,8 +35,13 @@ const ModifBioUser = () => {
 
         onSubmit: () => {
             axios({
-                method: 'post',
-                url: `http://127.0.0.1:8000/un_utilisateur/{id}`, 
+                method: 'put',
+                url: `http://127.0.0.1:8000/api/profil_modif`, 
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                },
                 data: {
                     biographie: formik.values.biographie,
                 }
@@ -48,8 +72,8 @@ const ModifBioUser = () => {
                 </div>
 
                 <div className="flex items-end ">
-                    <label class="block mt-4">
-                            <input type="file" class="block w-full text-sm text-slate-500
+                    <label className="block mt-4">
+                            <input type="file" className="block w-full text-sm text-slate-500
                             file:mr-4 file:py-2 file:px-4
                             file:rounded-full file:border-[#57B526]
                             file:text-sm file:font-semibold
@@ -67,14 +91,17 @@ const ModifBioUser = () => {
                  onSubmit={formik.handleSubmit} 
                 >
                 <textarea rows={18} className="indent-8 w-[18rem] ml-[-2rem] border-[#57B526]" 
-                // defaultValue={formik.biographie}
+                defaultValue={oneUserBio.biographie}
+                type="text"
+                id="biographie"
+                name="biographie"
+                placeholder={oneUserBio.biographie}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.biographie}
                 >
-
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</textarea>
+                    {formik.biographie}
+                </textarea>
                 </form>
             </div>
         
