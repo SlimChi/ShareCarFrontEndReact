@@ -136,17 +136,15 @@ const BioUser = () => {
                 <button onClick={handleImageUpload} className="cursor-pointer">Sauvegarder</button>
             )}
             <div className="flex flex-col justify-center w-[5rem] h-[6rem]">
-                <h3 className="mb-4 text-[#114076]"> Ma Bio</h3>
-
+                <h5 className="mb-4 mt-4 text-[#114076]"> Ma Bio</h5>
             </div>
-            <div className="flex flex-col justify-between h-[35rem]">
+            <div className="flex flex-col  h-[35rem]">
 
-                <div className="flex items-center">
+                <div className="flex items-center mb-4">
                     <IoIosStar className="text-[yellow] text-4xl" />
                     <p className="ml-2">4.5 / 5</p>
                 </div>
-                <div className="mt-4 flex justify-between">
-
+                <div className=" flex">
                     <div className="flex flex-col">
                         <p>Membre depuis : <em>Oct 2023</em></p>
                         <p>Nbre de points : <em>{oneUser.credit_jeton}</em></p>
