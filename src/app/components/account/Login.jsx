@@ -28,7 +28,7 @@ function Login() {
       onSubmit: () => {
           axios({
               method: 'post',
-              url: 'http://127.0.0.1:8000/api/connexion',
+              url: 'https://127.0.0.1:8000/connexion',
               data: {
                   email: formik.values.email,
                   mot_de_passe: formik.values.mot_de_passe,

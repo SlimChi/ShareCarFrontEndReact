@@ -14,7 +14,7 @@ const InfoUser = () => {
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
-            url: 'http://127.0.0.1:8000/api/profil',
+            url: 'https://127.0.0.1:8000/api/profil',
         }).then(function (response) {
             console.log(response.data);
             setOneUser(response.data);
@@ -44,6 +44,7 @@ const InfoUser = () => {
             </div>
 
             <div className="flex flex-col justify-between mt-8 ">
+                
                 <div className="flex flex-col justify-evenly h-[15rem]">
                     <p>{oneUser.prenom}</p>
                     <p>{oneUser.nom}</p>
