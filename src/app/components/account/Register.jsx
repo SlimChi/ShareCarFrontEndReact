@@ -33,7 +33,7 @@ function Register() {
         onSubmit: () => {
             axios({
                 method: 'post',
-                url: 'https://127.0.0.1:8000/inscription',
+                url: 'http://127.0.0.1:8000/inscription',
                 data: {
                     nom: formik.values.nom,
                     prenom: formik.values.prenom,

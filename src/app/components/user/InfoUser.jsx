@@ -14,7 +14,7 @@ const InfoUser = () => {
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
-            url: 'https://127.0.0.1:8000/api/profil',
+            url: 'http://127.0.0.1:8000/api/profil',
         }).then(function (response) {
             console.log(response.data);
             setOneUser(response.data);

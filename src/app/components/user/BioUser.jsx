@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
-import app from './firebase';
 import { IoIosStar } from "react-icons/io";
 
 const BioUser = () => {
@@ -138,60 +137,7 @@ const BioUser = () => {
             <div className="flex flex-col justify-center w-[5rem] h-[6rem]">
                 <h5 className="mb-4 mt-4 text-[#114076]"> Ma Bio</h5>
             </div>
-            <div className="flex flex-col  h-[35rem]">
-
-                <div className="flex items-center mb-4">
-                    <IoIosStar className="text-[yellow] text-4xl" />
-                    <p className="ml-2">4.5 / 5</p>
-                </div>
-                <div className=" flex">
-                    <div className="flex flex-col">
-                        <p>Membre depuis : <em>Oct 2023</em></p>
-                        <p>Nbre de points : <em>{oneUser.credit_jeton}</em></p>
-                    </div>
-                </div>
-
-                <div className="flex flex-col justify-between mt-5">
-                    <div className="flex flex-col justify-evenly h-[10rem]">
-                        <div className="flex justify-between">
-                            <label>Prénom:</label>
-                            <p>{oneUser.prenom}</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <label>Nom:</label>
-                            <p>{oneUser.nom}</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <label>Pseudo:</label>
-                            <p>{oneUser.pseudo}</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <label>Âge:</label>
-                            <p>{calculateAge()}</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <label>Email:</label>
-                            <p>{oneUser.email}</p>
-                        </div>
-                    </div>
-                    <div className="flex flex-col justify-evenly h-[7rem]">
-                        <div className="flex justify-between">
-                            <label>Adresse:</label>
-                            <p>{oneUser.adresse}</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <label>Code Postal:</label>
-                            <p>{oneUser.code_postal}</p>
-                        </div>
-                        <div className="flex justify-between">
-                            <label>Ville:</label>
-                            <p>{oneUser.ville}</p>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
+           
         </div>
 
 

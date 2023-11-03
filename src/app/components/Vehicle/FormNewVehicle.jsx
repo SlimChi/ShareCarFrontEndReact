@@ -1,6 +1,4 @@
-import react from "@heroicons/react";
-
-import { MdOutlineAddAPhoto } from "react-icons/md";
+import react from "react";
 
 export default function FormNewVehicle() {
     
@@ -42,7 +40,34 @@ export default function FormNewVehicle() {
                 </div>
             </div>
 
+            <div className="flex flex-row items-center justify-between w-[55rem] ml-[5rem]">
+                <label htmlFor="nbre_places" className="text-sm font-medium text-gray-900">Nbre de places disponibles</label>
+                    <select id="nbre_places" className="select">
+                        <option className="option" select="0">0</option>
+                        <option className="option" value="1">1</option>
+                        <option className="option" value="2">2</option>
+                        <option className="option" value="3">3</option>
+                        <option className="option" value="4">4</option>
+                    </select>
 
+                <label htmlFor="nbre_places" className="block mb-2 text-sm font-medium text-gray-900 ">Nbre de petits bagages</label>
+                    <select id="nbre_places" className="select">
+                        <option className="option" select="0">0</option>
+                        <option className="option" value="1">1</option>
+                        <option className="option" value="2">2</option>
+                        <option className="option" value="3">3</option>
+                        <option className="option" value="4">4</option>
+                    </select>
+
+                <label htmlFor="nbre_places" className="block mb-2 text-sm font-medium text-gray-900 ">Nbre de grands bagages</label>
+                    <select id="nbre_places" className="select">
+                        <option className="option" select="0">0</option>
+                        <option className="option" value="1">1</option>
+                        <option className="option" value="2">2</option>
+                        <option className="option" value="3">3</option>
+                        <option className="option" value="4">4</option>
+                    </select>
+            </div>
         </form>
 </div>
     );
