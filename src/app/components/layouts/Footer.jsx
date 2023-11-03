@@ -3,7 +3,7 @@ import react from "@heroicons/react";
 
 export default function Footer() {
     return (
-        <footer className="bg-[#114076] text-white h-15" footer>
+        <footer className="bg-[#114076] text-white h-15" >
             <div className="flex justify-center items-center">
                 <div className="flex justify-between w-1/4 mt-20 text-xs">
                     <a href="#">Informations légales</a>
