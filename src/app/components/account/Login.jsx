@@ -43,7 +43,7 @@ function Login() {
       
           if (response.data) {
             // Utilisez la navigation pour rediriger l'utilisateur vers la page ProfilView
-            navigate(URL_PROFIL);
+            navigate(URL_HOME);
           } else {
             return response.data.message;
           }

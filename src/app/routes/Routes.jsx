@@ -25,8 +25,7 @@ import VehicleView from "../views/VehicleView";
 const Routes = () => {
   return (
     <RoutesContainer>
-      <Route path={URL.URL_HOME} element={<HomeView />}
-      />
+      <Route path={URL.URL_HOME} element={<HomeView />}/>
       <Route path={URL.URL_ADMIN_HOME} element={<PrivateRoute roles={[ROLE_ADMIN]}>
         <AdminHomeView />
       </PrivateRoute>
