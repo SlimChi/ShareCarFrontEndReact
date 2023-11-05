@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, Navigate, useNavigate } from 'react-router-dom'; // Importez Navigate et useNavigate
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { URL_HOME, URL_PROFIL, URL_REGISTER } from '../../constants/urls/urlFrontEnd';
+import { URL_HOME, URL_REGISTER } from '../../constants/urls/urlFrontEnd';
 import { signIn } from '../../redux-store/authenticationSlice';
 
 function Login() {
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Ajoutez cette ligne pour obtenir l'objet de navigation
+  const navigate = useNavigate();
+  const [error, setError] = useState(null);
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -33,23 +35,21 @@ function Login() {
         },
       })
         .then(function (response) {
-          console.log('Response data:', response.data);
-          const token = response.data.token;
-          console.log('Received token:', token);
-          localStorage.setItem('token', token); // Stockez le token dans le local storage
-      
-          // Appel à signIn avec le token
-          dispatch(signIn(token));
-      
-          if (response.data) {
-            // Utilisez la navigation pour rediriger l'utilisateur vers la page ProfilView
+          if (response.data.token) {
+            const token = response.data.token;
+            localStorage.setItem('token', token);
+            dispatch(signIn(token));
             navigate(URL_HOME);
           } else {
-            return response.data.message;
+            setError(response.data.message);
           }
         })
         .catch(function (error) {
-          console.log(error);
+          if (error.response && error.response.data) {
+            setError(error.response.data.message);
+          } else {
+            setError('Une erreur s\'est produite lors de la connexion.');
+          }
         });
     },
   });
@@ -59,6 +59,7 @@ function Login() {
       <h2 className="mt-16 text-center text-2xl font-bold text-[#114076]">
         CONNEXION
       </h2>
+      {error && <p className="text-red-500">{error}</p>}
       <form onSubmit={formik.handleSubmit}>
         <div className="flex flex-col space-y-3">
           <input
@@ -70,11 +71,9 @@ function Login() {
             value={formik.values.email}
             placeholder="Email"
           />
-          <span>
-            {formik.touched.email && formik.errors.email ? (
-              <>{formik.errors.email}</>
-            ) : null}
-          </span>
+          {formik.touched.email && formik.errors.email && (
+            <span className="text-red-500">{formik.errors.email}</span>
+          )}
           <input
             type="password"
             className="input"
@@ -84,11 +83,9 @@ function Login() {
             onBlur={formik.handleBlur}
             value={formik.values.mot_de_passe}
           />
-          <span>
-            {formik.touched.mot_de_passe && formik.errors.mot_de_passe ? (
-              <>{formik.errors.mot_de_passe}</>
-            ) : null}
-          </span>
+          {formik.touched.mot_de_passe && formik.errors.mot_de_passe && (
+            <span className="text-red-500">{formik.errors.mot_de_passe}</span>
+          )}
           <div>
             <input type="checkbox" id="remember-me" />
             <span className="ml-2 text-sm text-[#114076]">Se souvenir de moi</span>
@@ -98,12 +95,9 @@ function Login() {
           SE CONNECTER
         </button>
         <Link to={URL_REGISTER}>
-          <p className="text-end text-sm text-[#114076] italic">Mot de passe oublié</p>
+          <p className="text-end text-sm text-[#114076] italic">Créer un compte</p>
         </Link>
       </form>
-      <button className="btn-green-inverse block w-full h-[3rem] mt-16 mb-8">
-        CREER UN COMPTE
-      </button>
     </div>
   );
 }
