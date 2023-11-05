@@ -83,20 +83,29 @@ function Login() {
             onBlur={formik.handleBlur}
             value={formik.values.mot_de_passe}
           />
+
           {formik.touched.mot_de_passe && formik.errors.mot_de_passe && (
             <span className="text-red-500">{formik.errors.mot_de_passe}</span>
           )}
-          <div>
-            <input type="checkbox" id="remember-me" />
-            <span className="ml-2 text-sm text-[#114076]">Se souvenir de moi</span>
+          <div className="flex items-center justify-between">
+            <div>
+              <input type="checkbox" id="remember-me" />
+              <span className="ml-2 text-sm text-[#114076]">Se souvenir de moi</span>
+            </div>
+            <Link>
+              <p className="text-sm text-[#114076] italic">Mot de passe oublié</p>
+            </Link>
           </div>
+
+
         </div>
-        <button type="submit" className="btn-green block w-full h-[3rem] mt-16 mb-4">
+        <button type="submit" className="btn-green block rounded-md w-full h-[3rem] mt-16 mb-4">
           SE CONNECTER
         </button>
         <Link to={URL_REGISTER}>
           <p className="text-end text-sm text-[#114076] italic">Créer un compte</p>
         </Link>
+
       </form>
     </div>
   );

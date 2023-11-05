@@ -126,7 +126,7 @@ function Register() {
                 </div>
                 <button
                     type="submit"
-                    className="btn-green block w-full h-[3rem] mt-16 mb-8"
+                    className="btn-green block rounded-md w-full h-[3rem] mt-16 mb-8"
                 >
                     S'inscrire
                 </button>
