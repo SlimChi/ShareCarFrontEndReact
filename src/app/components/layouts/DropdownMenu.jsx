@@ -3,34 +3,22 @@ import { Menu, Transition } from '@headlessui/react';
 import { PiUserSquareLight } from "react-icons/pi";
 import { Link } from 'react-router-dom';
 import { URL_LOGIN, URL_REGISTER } from '../../constants/urls/urlFrontEnd';
-import { useState, useEffect } from 'react';
-import { removeToken, getToken } from "../../services/tokenServices";
-
+import { useSelector, useDispatch } from 'react-redux';
+import { selectIsLogged, signOut } from '../../redux-store/authenticationSlice';
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function DropdownMenu() {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  const [loggingOut, setLoggingOut] = useState(false);
-
-  useEffect(() => {
-    // Vérifiez si le token est présent dans le stockage local pour déterminer l'état de connexion
-    const token = getToken();
-    setIsUserLoggedIn(!!token);
-  }, []);
+  const isAuthenticated = useSelector(selectIsLogged);
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
-    setLoggingOut(true);
+    // Dispatchez l'action de déconnexion en utilisant la classe `authenticationSlice`
+    dispatch(signOut());
 
-    // Supprimez le token du local storage
-    removeToken();
-
-    // Attendez un court délai avant de mettre à jour l'état de connexion et de rediriger
-    setTimeout(() => {
-      setIsUserLoggedIn(false);
-      window.location.href = URL_LOGIN;
-    }, 200);
+    // Redirigez vers la page de connexion
+    window.location.href = URL_LOGIN; // Vous pouvez utiliser la navigation React Router au lieu de window.location.href
   };
 
   return (
@@ -52,7 +40,7 @@ export default function DropdownMenu() {
       >
         <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            {isUserLoggedIn ? (
+            {isAuthenticated ? (
               <Menu.Item>
                 {({ active }) => (
                   <Link
@@ -82,7 +70,7 @@ export default function DropdownMenu() {
                 )}
               </Menu.Item>
             )}
-            {!isUserLoggedIn && (
+            {!isAuthenticated && (
               <Menu.Item>
                 {({ active }) => (
                   <Link

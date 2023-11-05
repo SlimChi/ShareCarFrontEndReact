@@ -1,28 +1,19 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Navigate, useLocation } from 'react-router-dom';
+import { selectIsLogged } from '../redux-store/authenticationSlice';
+import { URL_LOGIN } from '../constants/urls/urlFrontEnd';
 
-import { URL_HOME, URL_LOGIN } from '../constants/urls/urlFrontEnd';
-import { selectHasRole, selectIsLogged } from '../redux-store/authenticationSlice';
-
-/**
- * Component PriveRoute
- * To handle private's route, that needs authentication
- * Check also if the role is authorized to access the route
- *
- * @example
- *          <PrivateRoute path={URL_HOME} element={HomeView} />
- *          <PrivateRoute path={URL_ADMIN_HOME} element={AdminHomeView} roles={[ROLE_ADMIN]} />
- * @author Peter Mollet
- */
 export const PrivateRoute = ({ children, roles }) => {
-    const location = useLocation();
-    const isAuthenticated = useSelector(selectIsLogged);
-    const hasRole = useSelector((state) => selectHasRole(state, roles));
-    if (!isAuthenticated)
-        return <Navigate replace to={URL_LOGIN} state={{ from: location }} />;
+  const isAuthenticated = useSelector(selectIsLogged);
 
-    if (roles && !hasRole) return <Navigate replace to={{ pathname: URL_HOME }} />;
+  if (!isAuthenticated) {
+    return <Navigate to={URL_LOGIN} />;
+  }
 
-    return children;
+  if (roles && roles.length > 0) {
+    // Vérifiez les rôles ici si nécessaire.
+  }
+
+  return children;
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes as RoutesContainer } from "react-router-dom";
 
-import { ROLE_ADMIN } from "../constants/rolesConstant";
+import { ROLE_ADMIN, ROLE_USER } from "../constants/rolesConstant";
 import * as URL from "../constants/urls/urlFrontEnd";
 import { PrivateRoute } from "./PrivateRoute";
 
@@ -21,29 +21,28 @@ import SendPasswordView from "../views/SendPasswordView";
 import VehicleView from "../views/VehicleView";
 
 
+
 const Routes = () => {
   return (
     <RoutesContainer>
-      <Route
-        path={URL.URL_HOME}
-        element={
-          <HomeView />
-        }
+      <Route path={URL.URL_HOME} element={<HomeView />}
       />
-      <Route
-        path={URL.URL_ADMIN_HOME}
-        element={
-          <PrivateRoute roles={[ROLE_ADMIN]}>
-            <AdminHomeView />
-          </PrivateRoute>
-        }
+      <Route path={URL.URL_ADMIN_HOME} element={<PrivateRoute roles={[ROLE_ADMIN]}>
+        <AdminHomeView />
+      </PrivateRoute>
+      }
       />
       <Route path={URL.URL_LOGIN} element={<LoginView />} />
       <Route path={URL.URL_REGISTER} element={<RegisterView />} />
       {/* <PrivateRoute roles={[ROLE_USER]}> */}
 
 
-      <Route path={URL.URL_PROFIL} element={<ProfilView />} />
+      <Route path={URL.URL_PROFIL} element={<PrivateRoute roles={[ROLE_USER]}>
+        <ProfilView />
+      </PrivateRoute>} />
+
+          {/*     <Route path={URL.URL_PROFIL} element={<ProfilView />} />   */}
+  
       <Route path={URL.URL_MODIF_PROFIL} element={<ModifProfilView />} />
       <Route path={URL.URL_DELETE_PROFIL} element={<DeleteProfilView />} />
 
