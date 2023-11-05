@@ -7,8 +7,8 @@ import * as Yup from 'yup';
 
 
 import Sidebar from "../components/layouts/SideBar";
-import ModifBioUser from "../components/ModifUser/ModifBioUser";
-import ModifInfoUser from "../components/ModifUser/ModifInfoUser";
+import ModifBioUser from "../components/modifuser/ModifBioUser";
+import ModifInfoUser from "../components/modifuser/ModifInfoUser";
 
 
 export default function ModifProfilView () {

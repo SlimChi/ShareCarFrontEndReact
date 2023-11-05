@@ -38,41 +38,62 @@ html {
     display: none;
 }
 
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff; /* Couleur d'arrière-plan personnalisée */
+    color: #fff; /* Couleur du texte personnalisée */
+    cursor: pointer;
+    border-radius: 5px;
+}
 
+.custom-file-upload:hover {
+    background-color: #0056b3; /* Couleur d'arrière-plan personnalisée au survol */
+}
 /* Styles pour les cartes */
-/* .car-card {
+.car-card {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
     margin: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
     max-width: 300px;
-} */
+}
 
 /* Styles pour les images */
-/* .image-container {
+.image-container {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-} */
+}
 
-/* .image-container img {
+.image-container img {
     max-width: 100px;
     max-height: 100px;
     object-fit: cover;
     border: 1px solid #ddd;
     border-radius: 4px;
-} */
+}
 /* CSS pour positionner le footer en bas de la page */
-/* .container {
+.container {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Occupe au moins toute la hauteur de la vue */
+}
 
+.main-content {
+    flex-grow: 1; /* Permet au contenu principal de prendre l'espace disponible */
+}
 
-/* .main-content { */
-    /* flex-grow: 1;  */
-    /* Permet au contenu principal de prendre l'espace disponible */
-/* } */
-
-
+/* CSS pour un footer avec une hauteur réduite */
+.footer {
+    height: 50px; /* Réduisez la hauteur à votre convenance */
+    background-color: #333; /* Couleur de fond du footer */
+    color: #fff; /* Couleur du texte du footer */
+    padding: 10px; /* Espacement interne du footer */
+    text-align: center; /* Centrer le contenu du footer */
+}
+.cursor-pointer {
+    cursor: pointer;
+}

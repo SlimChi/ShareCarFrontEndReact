@@ -27,7 +27,7 @@ const Routes = () => {
       <Route
         path={URL.URL_HOME}
         element={
-            <HomeView />
+          <HomeView />
         }
       />
       <Route
@@ -42,14 +42,15 @@ const Routes = () => {
       <Route path={URL.URL_REGISTER} element={<RegisterView />} />
       {/* <PrivateRoute roles={[ROLE_USER]}> */}
 
-        <Route path={URL.URL_PROFIL} element={<ProfilView />} />
-        <Route path={URL.URL_MODIF_PROFIL} element={<ModifProfilView />} />
-        <Route path={URL.URL_DELETE_PROFIL} element={<DeleteProfilView />} />
 
-        <Route path={URL.URL_MODIF_PASSWORD} element={<ModifPasswordView />} />
-        <Route path={URL.URL_SEND_PASSWORD} element={<SendPasswordView />} />
-        
-        <Route path={URL.URL_VEHICLES} element={<VehicleView />} />
+      <Route path={URL.URL_PROFIL} element={<ProfilView />} />
+      <Route path={URL.URL_MODIF_PROFIL} element={<ModifProfilView />} />
+      <Route path={URL.URL_DELETE_PROFIL} element={<DeleteProfilView />} />
+
+      <Route path={URL.URL_MODIF_PASSWORD} element={<ModifPasswordView />} />
+      <Route path={URL.URL_SEND_PASSWORD} element={<SendPasswordView />} />
+
+      <Route path={URL.URL_VEHICLES} element={<VehicleView />} />
       {/* </PrivateRoute> */}
     </RoutesContainer>
   );

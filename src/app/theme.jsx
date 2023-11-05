@@ -2,6 +2,12 @@ import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 import { grey } from "@mui/material/colors";
 
+
+export const ColorModeContext = createContext({
+    mode: "light", // Valeur par défaut du mode
+    toggleColorMode: () => {},
+  });
+
 export const getDesignTokens = (mode) => ({
     palette: {
         mode,
@@ -57,24 +63,26 @@ export const getDesignTokens = (mode) => ({
     },
 });
 
-// context for color mode
-export const ColorModeContext = createContext({
-    toggleColorMode: () => {},
-});
+
 
 export const useMode = () => {
     const [mode, setMode] = useState(
-        localStorage.getItem("mode") ? localStorage.getItem("mode") : "light"
+      localStorage.getItem("mode") ? localStorage.getItem("mode") : "light"
     );
-
+  
     const colorMode = useMemo(
-        () => ({
-            toggleColorMode: () =>
-                setMode((prev) => (prev === "light" ? "dark" : "light")),
-        }),
-        []
+      () => ({
+        mode,
+        toggleColorMode: () => {
+          const newMode = mode === "light" ? "dark" : "light";
+          localStorage.setItem("mode", newMode);
+          setMode(newMode);
+        },
+      }),
+      [mode]
     );
-
+  
     const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+  
     return [theme, colorMode];
-};
+  };

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useFormik } from 'formik';
 import axios from 'axios';
-
 import { BsPen } from "react-icons/bs";
 import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
-import app from './firebase';
 
 
 const ModifBioUser = () => {

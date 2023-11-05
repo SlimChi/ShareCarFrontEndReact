@@ -1,43 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
-import { IoIosStar } from "react-icons/io";
+import app from '../../components/modifuser/firebase.jsx';
 
 const BioUser = () => {
-    const [oneUser, setOneUser] = useState([]);
+ 
     const [selectedImage, setSelectedImage] = useState(null);
     const [imageURL, setImageURL] = useState(null);
     const [showSaveButton, setShowSaveButton] = useState(false);
 
-    useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const token = localStorage.getItem('token');
-                if (token) {
-                    const response = await axios.get('https://127.0.0.1:8000/api/profil', {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json',
-                            'Authorization': 'Bearer ' + token,
-                        },
-                    });
-
-                    console.log(response.data);
-                    setOneUser(response.data);
-
-                    if (response.data.image_url) {
-                        setImageURL(response.data.image_url);
-                    }
-                } else {
-                    console.error("Le token d'authentification est manquant.");
-                }
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        fetchUserData();
-    }, []);
 
     useEffect(() => {
         const fetchUserImages = async () => {
@@ -114,12 +85,7 @@ const BioUser = () => {
             console.error("Sélectionnez une image à télécharger.");
         }
     };
-    const calculateAge = () => {
-        let today = new Date();
-        let birthDate = new Date(oneUser.date_de_naissance);
-        let age = today.getFullYear() - birthDate.getFullYear();
-        return age;
-    };
+  
     return (
         <div className="flex flex-col justify-center w-[25rem] bg-blue-200 space-y-4 md:items-center md:space-y-0 md:space-x-4">
             {imageURL && (
