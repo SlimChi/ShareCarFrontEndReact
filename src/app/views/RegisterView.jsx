@@ -4,9 +4,6 @@ import React from "react";
 import Register from './../components/account/Register';
 
 function RegisterView() {
-
-
-
     return (
       <div className="flex items-center ml-[15%]">
           <div className="flex w-full  ">

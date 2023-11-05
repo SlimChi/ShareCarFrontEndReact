@@ -1,10 +1,11 @@
 import { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { PiUserSquareLight } from "react-icons/pi";
-import { Link } from 'react-router-dom';
-import { URL_LOGIN, URL_REGISTER } from '../../constants/urls/urlFrontEnd';
+import { Link, useNavigate } from 'react-router-dom';
+import { URL_LOGIN, URL_REGISTER } from '../../constants/urls/urlFrontEnd';  // Supprimez URL_REGISTER de cette importation
 import { useSelector, useDispatch } from 'react-redux';
 import { selectIsLogged, signOut } from '../../redux-store/authenticationSlice';
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -12,13 +13,13 @@ function classNames(...classes) {
 export default function DropdownMenu() {
   const isAuthenticated = useSelector(selectIsLogged);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Dispatchez l'action de déconnexion en utilisant la classe `authenticationSlice`
     dispatch(signOut());
-
-    // Redirigez vers la page de connexion
-    window.location.href = URL_LOGIN; // Vous pouvez utiliser la navigation React Router au lieu de window.location.href
+    
+    // Redirigez l'utilisateur vers la page de connexion après la déconnexion
+    navigate(URL_REGISTER); 
   };
 
   return (
@@ -51,7 +52,7 @@ export default function DropdownMenu() {
                       'block px-4 py-2 text-sm'
                     )}
                   >
-                    Déconnexion
+                    Se déconnecter                   
                   </Link>
                 )}
               </Menu.Item>
@@ -59,7 +60,7 @@ export default function DropdownMenu() {
               <Menu.Item>
                 {({ active }) => (
                   <Link
-                    to={URL_REGISTER}
+                    to={URL_REGISTER}  // Vous pouvez conserver ce lien vers l'inscription
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                       'block px-4 py-2 text-sm'
