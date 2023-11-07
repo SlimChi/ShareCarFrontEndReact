@@ -6,7 +6,7 @@ export default function VehicleFormImgView() {
     
     return (
 <div> 
-    <form>
+
 <img
           src="../../../../src/Images/Car2.png"
           alt=""
@@ -16,7 +16,7 @@ export default function VehicleFormImgView() {
         <h4 className="text-center uppercase font-bold text-[#114076] mt-8 mb-[5rem]" >
           IMAGES DU VEHICULE
         </h4>
-   
+    <form>   
         <div className="flex flex-row  justify-evenly items-center space-x-4 mt-8 w-full">
                 <div>
                     <img src="../../../../src/Images/Car2.png" alt="" className="object-cover w-[20rem]"/> 

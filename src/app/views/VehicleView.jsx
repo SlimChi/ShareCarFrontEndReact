@@ -7,28 +7,29 @@ import { BsCarFront } from "react-icons/bs";
 import { PiBackpack } from "react-icons/pi";
 import { PiSuitcaseRolling } from "react-icons/pi";
 import { URL_ADD_VEHICLE } from "../constants/urls/urlFrontEnd";
+import CarouselVehicle from "../components/Vehicle/CarouselVehicle";
 
 export default function VehicleView () {
 
     return (
-    <div>
+        <div>
+            <img src="../../../../src/Images/Car2.png" alt="" className="object-cover h-[30rem] w-full"/>
             
-            
-                <img src="../../../../src/Images/Car2.png" alt="" className="object-cover h-[30rem] w-full"/>
-                
-                    <Sidebar/>
+                <Sidebar/>
 
-                <h4 className="text-center uppercase font-bold text-[#114076] mt-8 mb-[5rem]">Gestion des véhicules</h4>
-<div className="flex justify-end mr-[7rem]">
-<Link to={URL_ADD_VEHICLE}>
-    <button className="btn-green-inverse">AJOUTER UN VEHICULE</button>
-</Link>
-</div>
+            <h4 className="text-center uppercase font-bold text-[#114076] mt-8 mb-[5rem]">Gestion des véhicules</h4>
+
+            <div className="flex justify-end mr-[7rem]">
+                <Link to={URL_ADD_VEHICLE}>
+                    <button className="btn-green-inverse">AJOUTER UN VEHICULE</button>
+                </Link>
+            </div>
+
             <div className="px-8 pt-6 w-[25rem] ml-[5rem] mt-8">
                 <h6 className="font-bold text-[#114076] mb-8">VEHICULE 1</h6>
             </div>
 
-        <div className="flex flex-col justify-between">
+            <div className="flex flex-col justify-between">
                 <div className="flex flex-row justify-evenly">
                     <div className="flex flex-col justify-between  space-y-8">
                         <div className="flex w-[20rem] items-center">
@@ -53,9 +54,11 @@ export default function VehicleView () {
                             </div>
                         </div>
                     </div>
-                
+
+
                     <div>
-                        <img src="../../../../src/Images/Car2.png" alt="" className="w-[30rem]"/>
+                        <CarouselVehicle />
+                        {/* <img src="../../../../src/Images/Car2.png" alt="" className="w-[30rem]"/> */}
                     </div>
                 </div>
 

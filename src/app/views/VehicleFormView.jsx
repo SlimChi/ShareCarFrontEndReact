@@ -10,7 +10,7 @@ export default function VehiculeFormView() {
 
   return (
     <div className="">
-      <form action="">
+     
         <img
           src="../../../../src/Images/Car2.png"
           alt=""
@@ -20,6 +20,7 @@ export default function VehiculeFormView() {
         <h4 className="text-center uppercase font-bold text-[#114076] mt-8 mb-12" >
           AJOUTER UN VEHICULE
         </h4>
+        <form action=""> 
           <FormNewVehicle/>
 
           <OptionTravel />
