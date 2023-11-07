@@ -16,7 +16,7 @@ const InfoUser = () => {
                 Accept: "application/json",
                 Authorization: "Bearer " + localStorage.getItem("token"),
             },
-            url: "https://127.0.0.1:8000/api/profil",
+            url: "http://127.0.0.1:8000/api/profil",
         })
             .then(function (response) {
                 setOneUser(response.data);
@@ -44,15 +44,16 @@ const InfoUser = () => {
                 <p>Erreur lors de la récupération des données</p>
             ) : oneUser ? (
                 <div>
-                        <div className="flex items-center justify-between w-[6rem]">
-                            <IoIosStar className="text-[yellow] text-4xl" />
-                            <p className="">4.5 / 5</p>
-                        </div>
                     <div className="mt-4 flex justify-between">
-                    
-                        <div className="flex flex-col">
-                            <p>Membre depuis : <em>Oct 2023</em></p><br/>
-                            <p>Nbre de points: <em>{oneUser.credit_jeton}</em></p>
+                            <div className="flex items-center justify-between w-[6rem]">
+                                <IoIosStar className="text-[yellow] text-4xl" />
+                                <p className="">4.5 / 5</p>
+                            </div>
+                        <div className="mt-4 flex justify-between">
+                            <div className="flex flex-col">
+                                <p>Membre depuis : <em>{oneUser.date_inscription}</em></p><br/>
+                                <p>Nbre de points: <em>{oneUser.credit_jeton}</em></p>
+                            </div>
                         </div>
                     </div>
                     <div className="flex flex-col justify-between mt-8">
@@ -72,6 +73,7 @@ const InfoUser = () => {
                         </div>
                     </div>
                 </div>
+                
             ) : (
                 <p>Aucune donnée utilisateur disponible</p>
             )}

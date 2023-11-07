@@ -6,7 +6,7 @@
         @apply h-full
     }
     body{
-        @apply h-full
+        @apply h-full overflow-x-hidden
     }
 
 
@@ -79,7 +79,8 @@ html {
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Occupe au moins toute la hauteur de la vue */
+    min-height: 100vh; 
+    /* Occupe au moins toute la hauteur de la vue */
 }
 
 .main-content {

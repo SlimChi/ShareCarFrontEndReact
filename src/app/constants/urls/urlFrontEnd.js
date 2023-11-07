@@ -9,4 +9,7 @@ export const URL_DELETE_PROFIL = '/deleteprofil';
 export const URL_MODIF_PASSWORD = '/modifpassword';
 export const URL_SEND_PASSWORD = '/sendpassword';
 export const URL_AVIS_LIST = '/avis-list';
+
 export const URL_VEHICLES = '/vehicles';
+export const URL_ADD_VEHICLE = '/add-vehicle';
+export const URL_ADD_IMG_VEHICLE = '/add-img-vehicle';

@@ -19,6 +19,8 @@ import ModifPasswordView from "../views/ModifPasswordView";
 import SendPasswordView from "../views/SendPasswordView";
 
 import VehicleView from "../views/VehicleView";
+import VehicleFormView from "../views/VehicleFormView";
+import VehicleFormImgView from "../views/VehicleFormImgView";
 
 const Routes = () => {
   return (
@@ -37,6 +39,8 @@ const Routes = () => {
       <Route path={URL.URL_MODIF_PASSWORD} element={<ModifPasswordView />} />
       <Route path={URL.URL_SEND_PASSWORD} element={<SendPasswordView />} />
       <Route path={URL.URL_VEHICLES} element={<VehicleView />} />
+      <Route path={URL.URL_ADD_VEHICLE} element={<VehicleFormView />} />
+      <Route path={URL.URL_ADD_IMG_VEHICLE} element={<VehicleFormImgView />} />
     </RoutesContainer>
   );
 };

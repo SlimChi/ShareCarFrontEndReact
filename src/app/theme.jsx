@@ -49,7 +49,7 @@ export const getDesignTokens = (mode) => ({
                 },
 
                 bg: {
-                    main: "#3FB3DA",
+                    main: "#293539",
                 },
 
                 neutral: {

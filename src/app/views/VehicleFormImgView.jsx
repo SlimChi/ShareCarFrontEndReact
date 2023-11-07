@@ -1,12 +1,23 @@
-import react from "@heroicons/react";
+import react from "react";
 
+import Sidebar from "../components/layouts/SideBar";
 
-export default function GestionImagesVehicle() {
+export default function VehicleFormImgView() {
     
     return (
-<div>
+<div> 
     <form>
-        <div className="flex flex-row justify-between w-[55rem] h-[10rem] ml-[5rem] space-x-4 mt-8">
+<img
+          src="../../../../src/Images/Car2.png"
+          alt=""
+          className="object-cover h-[30rem] w-full"
+        />
+        <Sidebar />
+        <h4 className="text-center uppercase font-bold text-[#114076] mt-8 mb-[5rem]" >
+          IMAGES DU VEHICULE
+        </h4>
+   
+        <div className="flex flex-row  justify-evenly items-center space-x-4 mt-8 w-full">
                 <div>
                     <img src="../../../../src/Images/Car2.png" alt="" className="object-cover w-[20rem]"/> 
                         <label className="block mt-4">
@@ -45,6 +56,11 @@ export default function GestionImagesVehicle() {
                             "/>
                         </label>
                 </div>
+            </div>
+
+{/* rediriger vers URL_VEHICLE une fois validé */}
+            <div className="m-16 flex justify-end mr-[8rem]">
+                <button className="btn-green w-[15rem] h-[3rem]">ENREGISTER</button>
             </div>
         </form>
 </div>
