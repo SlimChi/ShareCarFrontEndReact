@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
+import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 
 import { 
     URL_MODIF_PROFIL, 
@@ -28,7 +30,7 @@ const Sidebar = () => {
   return (
     <div className={`fixed z-30 inset-y-0 right-0 w-[22rem] bg-gradient-to-t from-[#114076] to-blue-200 bg-gradient-to-b from-[#114076] to-blue-200 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform ease-in-out duration-300`}>
       <button className="relative top-[7rem] right-[1.5rem] text-[#57B526] bg-white " onClick={toggleSidebar}>
-      <MdKeyboardDoubleArrowLeft className='text-[32px]'/>
+      {isOpen ? <ArrowCircleRightOutlinedIcon /> : <ArrowCircleLeftOutlinedIcon />}
       </button>
 
       <ul className="p-8 mt-[1rem] flex flex-col justify-evenly items-start ml-8 h-full">
