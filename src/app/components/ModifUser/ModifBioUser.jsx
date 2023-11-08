@@ -213,7 +213,7 @@ const ModifBioUser = () => {
                 onBlur={formik.handleBlur}
                 value={formik.values.biographie}
                 >
-                    {oneUserBio.biographie}
+                    {formik.values.biographie}
                 </textarea>
                 </form>
             </div>

@@ -81,24 +81,12 @@ const ModifInfoUser = () => {
 
     
     return (
-        <div className="flex flex-col justify-between h-[33rem]">
-            <div className="mt-4 flex justify-between">
-                <div className="flex items-center justify-between w-[6rem]">
-                    <IoIosStar className="text-[yellow] text-4xl"/>
-                    <p className="">4.5 / 5</p>
-                </div>
-                <div className="flex flex-col ">
-                    <p>Membre depuis : <em>oct 2023</em></p>
-                    <p>Nbre de points : <em>2 500</em></p>
-                </div>
-            </div>
-            <div className="flex justify-end">
-               <BsPen /> 
-            </div>
+        <div className="flex flex-col items-center mt-16">
+      
             
         <form onSubmit={formik.handleSubmit} >
             <div className="flex flex-col justify-between mt-8 w-[35rem]">
-                <div className="flex flex-col justify-evenly h-[15rem]">
+                <div className="flex flex-col justify-evenly h-[20rem]">
                     <input 
                         type="text"
                         id="nom"
@@ -189,9 +177,12 @@ const ModifInfoUser = () => {
                     
                 </div>
             </div>
-            <button type="submit" className="btn-green w-[15rem] h-[3rem] mt-[5rem]">
+            <div className="flex justify-center">
+                <button type="submit" className="btn-green w-[15rem] h-[3rem] mt-[5rem]">
                 Enregistrer
             </button>
+            </div>
+            
             </form>
         </div>
          );
