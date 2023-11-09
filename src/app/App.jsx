@@ -9,7 +9,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import ScrollToTop from './components/scroll/ScrollToTop';
 import { useDispatch, useSelector } from 'react-redux';
 import { signIn, selectIsLogged } from './redux-store/authenticationSlice';
-import { URL_LOGIN, URL_REGISTER, URL_SEND_PASSWORD } from './constants/urls/urlFrontEnd';
+import { URL_LOGIN, URL_REGISTER, URL_RESET_PASSWORD, URL_SEND_PASSWORD } from './constants/urls/urlFrontEnd';
 import { getToken } from './services/tokenServices';
 import LoadingSpinner from './components/spinner/LoadingSpinner';
 import HomeView from './views/HomeView';
@@ -35,12 +35,12 @@ const App = () => {
     }
   }, [dispatch]);
   
-  useEffect(() => {
-    if (!loading && !isAuthenticated && location.pathname !== URL_LOGIN && location.pathname !== URL_REGISTER && location.pathname !== URL_SEND_PASSWORD) {
-      // Redirigez vers la page de connexion si l'utilisateur n'est pas connecté
-      window.location.href = URL_LOGIN;
-    }
-  }, [isAuthenticated, location, loading]);
+  // useEffect(() => {
+  //   if (!loading && !isAuthenticated && location.pathname !== URL_LOGIN && location.pathname !== URL_REGISTER && location.pathname !== URL_SEND_PASSWORD && location.pathname !== URL_RESET_PASSWORD) {
+  //     // Redirigez vers la page de connexion si l'utilisateur n'est pas connecté
+  //     window.location.href = URL_LOGIN;
+  //   }
+  // }, [isAuthenticated, location, loading]);
 
   if (loading) {
     // Affichez un écran de chargement pendant le chargement des données d'authentification.
