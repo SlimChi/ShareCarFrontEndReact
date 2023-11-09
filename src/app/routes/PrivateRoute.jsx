@@ -9,6 +9,9 @@ export const PrivateRoute = ({ children, roles }) => {
     const location = useLocation();
     const isAuthenticated = useSelector(selectIsLogged);
     const hasRole = useSelector((state) => selectHasRole(state, roles));
+  
+    console.log("isAuthenticated:", isAuthenticated);
+    console.log("hasRole:", hasRole);
 
     // Si l'utilisateur n'est pas connecté, mais la route est accessible par les non connectés
     if (!isAuthenticated && (!roles || !hasRole)) {

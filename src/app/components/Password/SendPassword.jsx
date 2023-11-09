@@ -60,7 +60,7 @@ export default function SendPassword() {
                     <button type="submit" onClick={handleEnregistrerClick} className="btn-green w-[15rem] h-[3rem] mt-[1rem]">
                         Envoyer l'e-mail de réinitialisation
                     </button>
-                    {redirect && <Navigate to={URL_RESET_PASSWORD} />}
+                    {redirect && <Navigate to={URL_LOGIN} />}
                 </form>
             </div>
 

@@ -1,48 +1,52 @@
-import React, { useState } from "react"; import { useFormik } from 'formik';
+import React, { useState } from "react";
+import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { URL_LOGIN } from "../../constants/urls/urlFrontEnd";
 
 export default function ResetPassword() {
+    const { token } = useParams();
+    console.log(token);
+    const [resetSuccess, setResetSuccess] = useState(false);
     const navigate = useNavigate();
-    const [redirect, setRedirect] = useState(false);
-
-    const handleEnregistrerClick = () => {
-
-        setRedirect(true);
-    }
+    const [errors, setErrors] = useState([]);
 
     const formik = useFormik({
-
         initialValues: {
-            nouveau_mot_de_passe: '',
+            newpassword: '',
         },
         validationSchema: Yup.object({
-            nouveau_mot_de_passe: Yup.string()
+            newpassword: Yup.string()
                 .min(8, "Mot de passe trop court - minimum 8 caractères")
                 .required("Champ obligatoire"),
         }),
         onSubmit: (values) => {
-            axios({
-                method: 'post',
-                url: 'https://127.0.0.1:8000/reinitialisationmdp',
-                data: {
-                    nouveau_mot_de_passe: values.nouveau_mot_de_passe,
-                },
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            }).then(function (response) {
-                console.log(response.data);
+            axios.post(`https://127.0.0.1:8000/resetpassword/${token}`, {
+                newpassword: values.newpassword,
+            })
+            .then(function (response) {
+                console.log("Réponse du backend : ", response.data);
+
                 if (response.data.status === true) {
-                    alert("Mot de passe modifié avec succès.");
                     alert(response.data.message);
+                    setResetSuccess(true);
+                    navigate(URL_LOGIN);
+                } else {
+                    setErrors([response.data.message]);
                 }
-            }).catch(function (error) {
-                console.log(error);
+            })
+            .catch(function (error) {
+                console.log("Erreur lors de la requête : ", error);
+                if (error.response && error.response.data && error.response.data.message) {
+                    setErrors([error.response.data.message]);
+                } else {
+                    console.log(error);
+                }
             });
         },
     });
+
     return (
         <div>
             <form
@@ -50,6 +54,13 @@ export default function ResetPassword() {
                 action=""
                 className="flex flex-col mt-[25rem] items-center"
             >
+                {errors.length > 0 && (
+                    <div className="text-red-500">
+                        {errors.map((error, index) => (
+                            <p key={index}>{error}</p>
+                        ))}
+                    </div>
+                )}
                 <div className="w-[25rem] flex flex-col space-y-8">
                     <input
                         type="password"
@@ -57,23 +68,20 @@ export default function ResetPassword() {
                         placeholder="Nouveau mot de passe"
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                        value={formik.values.nouveau_mot_de_passe}
-                        name="nouveau_mot_de_passe"
+                        value={formik.values.newpassword}
+                        name="newpassword"
                     />
                     <span>
-                        {formik.touched.nouveau_mot_de_passe && formik.errors.nouveau_mot_de_passe ? (
-                            <>{formik.errors.nouveau_mot_de_passe}</>
+                        {formik.touched.newpassword && formik.errors.newpassword ? (
+                            <>{formik.errors.newpassword}</>
                         ) : null}
                     </span>
-
                 </div>
 
-                <button type="submit" onClick={handleEnregistrerClick} className="btn-green w-[15rem] h-[3rem] mt-[5rem]">
+                <button type="submit" className="btn-green w-[15rem] h-[3rem] mt-[5rem]">
                     Enregistrer
                 </button>
-                {redirect && <Navigate to="/login" />}
             </form>
         </div>
-
-    )
-}    
+    );
+}

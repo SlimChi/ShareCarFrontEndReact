@@ -35,12 +35,12 @@ const App = () => {
     }
   }, [dispatch]);
   
-  // useEffect(() => {
-  //   if (!loading && !isAuthenticated && location.pathname !== URL_LOGIN && location.pathname !== URL_REGISTER && location.pathname !== URL_SEND_PASSWORD) {
-  //     // Redirigez vers la page de connexion si l'utilisateur n'est pas connecté
-  //     window.location.href = URL_LOGIN;
-  //   }
-  // }, [isAuthenticated, location, loading]);
+  useEffect(() => {
+    if (!loading && !isAuthenticated && location.pathname !== URL_LOGIN && location.pathname !== URL_REGISTER && location.pathname !== URL_SEND_PASSWORD) {
+      // Redirigez vers la page de connexion si l'utilisateur n'est pas connecté
+      window.location.href = URL_LOGIN;
+    }
+  }, [isAuthenticated, location, loading]);
 
   if (loading) {
     // Affichez un écran de chargement pendant le chargement des données d'authentification.
