@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
-import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 
 import { 
     URL_MODIF_PROFIL, 
@@ -28,9 +28,9 @@ const Sidebar = () => {
   };
 
   return (
-    <div className={`fixed z-30 inset-y-0 right-0 w-[22rem] bg-gradient-to-t from-[#114076] to-blue-200 bg-gradient-to-b from-[#114076] to-blue-200 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform ease-in-out duration-300`}>
-      <button className="relative top-[7rem] right-[1.5rem] text-[#57B526] bg-white " onClick={toggleSidebar}>
-      {isOpen ? <ArrowCircleRightOutlinedIcon /> : <ArrowCircleLeftOutlinedIcon />}
+    <div className={`fixed z-30 inset-y-0 right-6 w-[22rem] bg-gradient-to-t from-[#114076] via-blue-300 to-[#114076] transform ${isOpen ? 'translate-x-6' : 'translate-x-full'} transition-transform ease-in-out duration-300`}>
+      <button className="relative top-[7rem] text-[#57B526]  " onClick={toggleSidebar}>
+      {isOpen ? <KeyboardDoubleArrowRightIcon /> : <KeyboardDoubleArrowLeftIcon />}
       </button>
 
       <ul className="p-8 mt-[1rem] flex flex-col justify-evenly items-start ml-8 h-full">

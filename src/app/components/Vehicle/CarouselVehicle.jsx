@@ -15,7 +15,7 @@ export default function CarouselVehicle() {
                     return;
                 }
 
-                const response = await axios.get('https://127.0.0.1:8000/api/get_voitures_images', {
+                const response = await axios.get('http://127.0.0.1:8000/api/get_voitures_images', {
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',

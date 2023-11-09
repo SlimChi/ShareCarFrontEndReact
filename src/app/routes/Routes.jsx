@@ -17,6 +17,8 @@ import VehicleFormView from "../views/VehicleFormView";
 import VehicleFormImgView from "../views/VehicleFormImgView";
 import ResetPassword from "../components/Password/resetPassword";
 
+import TravelFormView from "../views/TravelFormView";
+
 const Routes = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate(); // Obtenez la fonction de navigation
@@ -47,6 +49,10 @@ const Routes = () => {
       <Route path={URL.URL_VEHICLES} element={<PrivateRoute roles={[ROLE_USER]}><VehicleView /></PrivateRoute>} />
       <Route path={URL.URL_ADD_VEHICLE} element={<PrivateRoute roles={[ROLE_USER]}><VehicleFormView /></PrivateRoute>} />
       <Route path={URL.URL_ADD_IMG_VEHICLE} element={<PrivateRoute roles={[ROLE_USER]}><VehicleFormImgView /></PrivateRoute>} />
+ 
+
+      <Route path={URL.URL_ADD_TRAVEL} element={<TravelFormView />} />
+
     </RoutesContainer>
   );
 };

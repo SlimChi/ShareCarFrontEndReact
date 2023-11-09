@@ -12,6 +12,7 @@ import {
   URL_HOME,
   URL_LOGIN,
   URL_REGISTER,
+  URL_ADD_TRAVEL
 } from "../../constants/urls/urlFrontEnd";
 
 import DropdownMenu from "./DropdownMenu";
@@ -51,12 +52,12 @@ const Navbar = () => {
             </a>
           </div>
           <div className="flex flex-row justify-between ">
-            <a
-              href=""
+            <Link
+              to={URL_ADD_TRAVEL}
               className="flex flex-row items-center justify-between w-[10rem] text-[#FFFFFF]"
             >
               Publier un trajet
-            </a>
+            </Link>
           </div>
           <div className="ml-10">
             <DropdownMenu />
@@ -67,7 +68,7 @@ const Navbar = () => {
               {theme.palette.mode === "light" ? (
                 <LightModeOutlined sx={{ fontSize: "16px", color: "#fff" }} />
               ) : (
-                <DarkModeOutlined sx={{ fontSize: "16px" }} />
+                <DarkModeOutlined sx={{ fontSize: "16px", }} />
               )}
             </IconButton>
           </div>

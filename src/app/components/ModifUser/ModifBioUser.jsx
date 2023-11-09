@@ -175,25 +175,7 @@ const ModifBioUser = () => {
             {showSaveButton && ( // Affiche le bouton "Sauvegarder" uniquement si showSaveButton est true
                 <button onClick={handleImageUpload} className="cursor-pointer">Sauvegarder</button>
             )}
-                {/* <div className="flex justify-center items-center bg-white h-[15rem] w-[15rem] border-2 rounded-full mt-[-7rem]">
-                    <div className="flex flex-col ">
-                        <img src="/src/Images/avatar1.jpg" alt="" className=" flex rounded-full h-[14rem] w-[14rem]"/>
-                    </div>
 
-                    
-                </div>
-
-                <div className="flex items-end ">
-                    <label className="block mt-4">
-                            <input type="file" className="block w-full text-sm text-slate-500
-                            file:mr-4 file:py-2 file:px-4
-                            file:rounded-full file:border-[#57B526]
-                            file:text-sm file:font-semibold
-                            file:bg-violet-50 file:text-[#57B526] 
-                            hover:file:bg-violet-100
-                            "/>
-                        </label>
-                    </div> */}
             
             <div className="flex flex-col justify-center w-[15rem] h-[35rem]">
            

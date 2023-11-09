@@ -36,7 +36,7 @@ export default function ModifPassword() {
             }
             axios({
                 method: 'post',
-                url: 'https://127.0.0.1:8000/api/profil/updatepassword',
+                url: 'http://127.0.0.1:8000/api/profil/updatepassword',
                 data: {
                     ancien_mot_de_passe: values.ancien_mot_de_passe,
                     nouveau_mot_de_passe: values.nouveau_mot_de_passe,

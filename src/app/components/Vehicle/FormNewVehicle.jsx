@@ -10,7 +10,7 @@ export default function FormNewVehicle() {
     useEffect(() => {
         const fetchModeles = async () => {
             try {
-                axios.get(`https://127.0.0.1:8000/api/modeles`)
+                axios.get(`http://127.0.0.1:8000/api/modeles`)
                     .then((response) => {
                         setModeles(response.data);
                     });

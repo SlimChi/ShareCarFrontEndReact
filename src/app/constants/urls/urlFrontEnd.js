@@ -14,3 +14,6 @@ export const URL_AVIS_LIST = '/avis-list';
 export const URL_VEHICLES = '/vehicles';
 export const URL_ADD_VEHICLE = '/add-vehicle';
 export const URL_ADD_IMG_VEHICLE = '/add-img-vehicle';
+
+export const URL_TRAVELS = '/travels';
+export const URL_ADD_TRAVEL = '/add-travel';

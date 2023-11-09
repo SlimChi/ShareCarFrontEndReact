@@ -18,7 +18,7 @@ const BioUser = () => {
                     return;
                 }
 
-                const response = await axios.get('https://127.0.0.1:8000/api/get_user_images', {
+                const response = await axios.get('http://127.0.0.1:8000/api/get_user_images', {
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
@@ -45,7 +45,7 @@ const BioUser = () => {
                     return;
                 }
 
-                const response = await axios.get('https://127.0.0.1:8000/api/profil', {
+                const response = await axios.get('http://127.0.0.1:8000/api/profil', {
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
@@ -89,14 +89,6 @@ const BioUser = () => {
                 <h4 className="mb-4 text-[#114076]"> Ma Bio</h4>
                 <p className="">
                 {oneBioUser && oneBioUser.biographie}
-                    {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Donec a risus nec enim eleifend bibendum. Sed tincidunt 
-                    nibh nec augue sodales vehicula. Aliquam erat volutpat. 
-                    Vestibulum sed fringilla nibh. Aenean ornare posuere egestas. 
-                    Fusce luctus varius risus, nec laoreet leo euismod id. Integer 
-                    porttitor, ante et volutpat rhoncus, mauris ante porttitor 
-                    mauris, vulputate venenatis lorem dolor at mauris. 
-                    Phasellus sit amet sem urna.  */}
                 </p>
 
             </div>
