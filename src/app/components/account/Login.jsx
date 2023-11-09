@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { URL_HOME, URL_REGISTER } from '../../constants/urls/urlFrontEnd';
+import { URL_HOME, URL_REGISTER, URL_SEND_PASSWORD } from '../../constants/urls/urlFrontEnd';
 import { signIn } from '../../redux-store/authenticationSlice';
 
 function Login() {
@@ -92,7 +92,7 @@ function Login() {
               <input type="checkbox" id="remember-me" />
               <span className="ml-2 text-sm text-[#114076]">Se souvenir de moi</span>
             </div>
-            <Link>
+            <Link to={URL_SEND_PASSWORD}>
               <p className="text-sm text-[#114076] italic">Mot de passe oublié</p>
             </Link>
           </div>

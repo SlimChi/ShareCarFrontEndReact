@@ -16,12 +16,11 @@ export default function ModifPassword() {
         setRedirect(true);
       }
      
-
        const formik = useFormik({
         
         initialValues: {
-            ancien_mot_de_passe: '', // Champ pour l'ancien mot de passe
-            nouveau_mot_de_passe: '', // Champ pour le nouveau mot de passe
+            ancien_mot_de_passe: '',
+            nouveau_mot_de_passe: '', 
         },
         validationSchema: Yup.object({
             ancien_mot_de_passe: Yup.string().required("Champ obligatoire"),
@@ -49,7 +48,7 @@ export default function ModifPassword() {
             }).then(function (response) {
                 console.log(response.data);
                 if (response.data.status === true) {
-                    alert("Mot de passe modifié avec succès."); // Ajoutez un point à la fin de l'alerte
+                    alert("Mot de passe modifié avec succès.");
                     alert(response.data.message); 
                     dispatch(signOut());
                 }
@@ -72,7 +71,7 @@ export default function ModifPassword() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.ancien_mot_de_passe}
-                    name="ancien_mot_de_passe" // Ajoutez l'attribut name ici
+                    name="ancien_mot_de_passe" 
                 />
                 <span>
                     {formik.touched.ancien_mot_de_passe && formik.errors.ancien_mot_de_passe ? (
@@ -87,7 +86,7 @@ export default function ModifPassword() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.nouveau_mot_de_passe}
-                    name="nouveau_mot_de_passe" // Ajoutez l'attribut name ici
+                    name="nouveau_mot_de_passe" 
                 />
                 <span>
                     {formik.touched.nouveau_mot_de_passe && formik.errors.nouveau_mot_de_passe ? (

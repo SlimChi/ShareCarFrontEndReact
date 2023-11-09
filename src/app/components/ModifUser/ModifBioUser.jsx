@@ -19,7 +19,7 @@ const ModifBioUser = () => {
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
-            url: 'http://127.0.0.1:8000/api/profil',
+            url: 'https://127.0.0.1:8000/api/profil',
         }).then(function (response) {
             console.log(response.data);
             setOneUserBio(response.data);
@@ -36,7 +36,7 @@ const ModifBioUser = () => {
         onSubmit: () => {
             axios({
                 method: 'put',
-                url: `http://127.0.0.1:8000/api/profil_modif`, 
+                url: `https://127.0.0.1:8000/api/profil_modif`, 
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
@@ -75,7 +75,7 @@ const ModifBioUser = () => {
                     return;
                 }
 
-                const response = await axios.get('http://127.0.0.1:8000/api/get_user_images', {
+                const response = await axios.get('https://127.0.0.1:8000/api/get_user_images', {
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
@@ -129,7 +129,7 @@ const ModifBioUser = () => {
             await uploadBytes(storageRef, selectedImage);
             const downloadURL = await getDownloadURL(storageRef);
 
-            axios.post('http://127.0.0.1:8000/api/useraddurl', { image_url: downloadURL }, {
+            axios.post('https://127.0.0.1:8000/api/useraddurl', { image_url: downloadURL }, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,

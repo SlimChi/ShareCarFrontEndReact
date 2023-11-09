@@ -1,20 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { Navigate } from "react-router";
-import { selectIsLogged } from "../../redux-store/authenticationSlice";
 
 export default function FormNewVehicle() {
     const [modeles, setModeles] = useState([]);
     const [marquesUniques, setMarquesUniques] = useState([]);
     const [selectedMarque, setSelectedMarque] = useState(""); // Pour stocker la marque sélectionnée
     const [filteredModeles, setFilteredModeles] = useState([]); // Pour stocker les modèles filtrés
-    const isAuthenticated = useSelector(selectIsLogged);
-
-    if (!isAuthenticated) {
-        // Si l'utilisateur n'est pas connecté, redirigez-le vers la page de connexion.
-        return <Navigate to="/login" />;
-    }
+  
     useEffect(() => {
         const fetchModeles = async () => {
             try {

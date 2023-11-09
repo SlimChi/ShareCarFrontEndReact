@@ -5,9 +5,6 @@ import axios from 'axios';
 
 import { URL_PROFIL  } from "../../constants/urls/urlFrontEnd";
 
-import { IoIosStar } from "react-icons/io";
-import { BsPen } from "react-icons/bs";
-
 
 const ModifInfoUser = () => {
 
@@ -21,7 +18,7 @@ const ModifInfoUser = () => {
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
-            url: 'http://127.0.0.1:8000/api/profil',
+            url: 'https://127.0.0.1:8000/api/profil',
         }).then(function (response) {
             console.log(response.data);
             setOneUser(response.data);
@@ -47,7 +44,7 @@ const ModifInfoUser = () => {
         onSubmit: () => {
             axios({
                 method: 'put',
-                url: `http://127.0.0.1:8000/api/profil_modif`, 
+                url: `https://127.0.0.1:8000/api/profil_modif`, 
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
