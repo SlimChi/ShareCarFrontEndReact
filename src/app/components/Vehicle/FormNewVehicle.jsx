@@ -41,7 +41,7 @@ export default function FormNewVehicle() {
         setSelectedModele(selectedModele);
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (selectedModele, nbreDePlaces, nbrePetitsBagages, nbreGrandsBagages) => {
         e.preventDefault();
 
         // Vérifier si un modèle est sélectionné

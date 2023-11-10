@@ -17,8 +17,6 @@ import { RiLockPasswordLine } from 'react-icons/ri';
 import { GiNotebook } from 'react-icons/gi';
 import { BsCarFront } from 'react-icons/bs';
 import { MdOutlineModeOfTravel } from 'react-icons/md';
-import { MdKeyboardDoubleArrowLeft } from 'react-icons/md';
-
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,23 +32,18 @@ const Sidebar = () => {
   const handleMouseLeave = () => {
     setIsOpen(false);
   };
+
   return (
-<<<<<<< HEAD
-    <div className={`fixed z-30 inset-y-0 right-6 w-[22rem] bg-gradient-to-t from-[#114076] via-blue-300 to-[#114076] transform ${isOpen ? 'translate-x-6' : 'translate-x-full'}
-     transition-transform ease-in-out duration-300`}
+    <div
+      className={`fixed z-30 inset-y-0 right-6 w-[22rem] bg-gradient-to-t from-[#114076] via-blue-300 to-[#114076] transform ${
+        isOpen ? 'translate-x-6' : 'translate-x-full'
+      } transition-transform ease-in-out duration-300`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button className="relative top-[7rem] text-[#57B526]" onClick={toggleSidebar}>
+      <button className="relative top-[7rem] text-[#57B526] " onClick={toggleSidebar}>
         {isOpen ? <KeyboardDoubleArrowRightIcon /> : <KeyboardDoubleArrowLeftIcon />}
-=======
-    <div onMouseLeave={toggleSidebar} className={`fixed z-30 inset-y-0 right-6 w-[22rem] bg-gradient-to-t from-[#114076] via-blue-300 to-[#114076] 
-    transform ${isOpen ? 'translate-x-6' : 'translate-x-full'} transition-transform ease-in-out duration-300`}>
-      <button className="relative top-[7rem] text-[#57B526]  "  >
-      {isOpen ? <KeyboardDoubleArrowRightIcon /> : <KeyboardDoubleArrowLeftIcon />}
->>>>>>> 12721860063ab34f9eac6178ac8dab0a73032189
       </button>
-
 
       <ul className="p-8 mt-[1rem] flex flex-col justify-evenly items-start ml-8 h-full">
 
