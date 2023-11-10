@@ -35,6 +35,7 @@ const Sidebar = () => {
     setIsOpen(false);
   };
   return (
+<<<<<<< HEAD
     <div className={`fixed z-30 inset-y-0 right-6 w-[22rem] bg-gradient-to-t from-[#114076] via-blue-300 to-[#114076] transform ${isOpen ? 'translate-x-6' : 'translate-x-full'}
      transition-transform ease-in-out duration-300`}
       onMouseEnter={handleMouseEnter}
@@ -42,6 +43,12 @@ const Sidebar = () => {
     >
       <button className="relative top-[7rem] text-[#57B526]" onClick={toggleSidebar}>
         {isOpen ? <KeyboardDoubleArrowRightIcon /> : <KeyboardDoubleArrowLeftIcon />}
+=======
+    <div onMouseLeave={toggleSidebar} className={`fixed z-30 inset-y-0 right-6 w-[22rem] bg-gradient-to-t from-[#114076] via-blue-300 to-[#114076] 
+    transform ${isOpen ? 'translate-x-6' : 'translate-x-full'} transition-transform ease-in-out duration-300`}>
+      <button className="relative top-[7rem] text-[#57B526]  "  >
+      {isOpen ? <KeyboardDoubleArrowRightIcon /> : <KeyboardDoubleArrowLeftIcon />}
+>>>>>>> 12721860063ab34f9eac6178ac8dab0a73032189
       </button>
 
 

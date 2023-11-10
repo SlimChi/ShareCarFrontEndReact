@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+
 
 export default function FormNewVehicle() {
     const [modeles, setModeles] = useState([]);
     const [marquesUniques, setMarquesUniques] = useState([]);
     const [selectedMarque, setSelectedMarque] = useState("");
     const [selectedModele, setSelectedModele] = useState("");
-    console.log("Selected Modele:", selectedModele);
     const [nbreDePlaces, setNbreDePlaces] = useState(0);
     const [nbrePetitsBagages, setNbrePetitsBagages] = useState(0);
     const [nbreGrandsBagages, setNbreGrandsBagages] = useState(0);
-    const [redirect, setRedirect] = useState(false);
+
 
     useEffect(() => {
         const fetchModeles = async () => {
@@ -194,7 +193,7 @@ export default function FormNewVehicle() {
                             Ajouter Voiture
                         </button>
                     </div>
-                    {redirect && <Navigate to="/add-img-vehicle" />}
+                
             </form>
         </div>
     );
