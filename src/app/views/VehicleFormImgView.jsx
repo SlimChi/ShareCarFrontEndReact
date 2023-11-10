@@ -25,7 +25,7 @@ export default function VehicleFormImgView() {
                     return;
                 }
 
-                const response = await axios.get('http://127.0.0.1:8000/api/get_voitures_images', {
+                const response = await axios.get('https://127.0.0.1:8000/api/get_voitures_images', {
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
@@ -99,7 +99,7 @@ export default function VehicleFormImgView() {
                 setNewImagePreviews([]);
                 setShowSaveButton(false);
 
-                axios.post('http://127.0.0.1:8000/api/useraddurlvoitures', { image_voiture_urls: uploadedImageURLs.map(image => image.url) }, {
+                axios.post('https://127.0.0.1:8000/api/useraddurlvoitures', { image_voiture_urls: uploadedImageURLs.map(image => image.url) }, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': 'Bearer ' + token,
@@ -142,7 +142,7 @@ export default function VehicleFormImgView() {
                     setNewImageIds(newImageIdsCopy);
                 }
 
-                const response = await axios.delete(`http://127.0.0.1:8000/api/delete_voiture_image/${id}`, {
+                const response = await axios.delete(`https://127.0.0.1:8000/api/delete_voiture_image/${id}`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': 'Bearer ' + token,

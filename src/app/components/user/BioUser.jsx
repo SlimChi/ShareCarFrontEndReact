@@ -18,7 +18,7 @@ const BioUser = () => {
                     return;
                 }
 
-                const response = await axios.get('http://127.0.0.1:8000/api/get_user_images', {
+                const response = await axios.get('https://127.0.0.1:8000/api/get_user_images', {
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
@@ -45,7 +45,7 @@ const BioUser = () => {
                     return;
                 }
 
-                const response = await axios.get('http://127.0.0.1:8000/api/profil', {
+                const response = await axios.get('https://127.0.0.1:8000/api/profil', {
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
