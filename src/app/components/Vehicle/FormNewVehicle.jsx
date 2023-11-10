@@ -41,7 +41,7 @@ export default function FormNewVehicle() {
         setSelectedModele(selectedModele);
     };
 
-    const handleSubmit = async (selectedModele, nbreDePlaces, nbrePetitsBagages, nbreGrandsBagages) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Vérifier si un modèle est sélectionné
@@ -88,7 +88,7 @@ export default function FormNewVehicle() {
                     <div className="flex justify-between w-[50vw]">
                         <div className="flex flex-col">
                             <label htmlFor="marques" className="block text-gray-700 text-sm ">
-                                
+                                Marques
                             </label>
                             <select
                                 id="marques"
@@ -107,7 +107,7 @@ export default function FormNewVehicle() {
 
                         <div className="flex flex-col">
                             <label htmlFor="modeles" className="block text-gray-700 text-sm">
-                                
+                                Modeles
                             </label>
                             <select
                                 id="modeles"
