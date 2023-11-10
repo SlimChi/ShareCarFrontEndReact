@@ -88,7 +88,7 @@ export default function FormNewVehicle() {
                     <div className="flex justify-between w-[50vw]">
                         <div className="flex flex-col">
                             <label htmlFor="marques" className="block text-gray-700 text-sm ">
-                                Marques
+                                
                             </label>
                             <select
                                 id="marques"
@@ -107,7 +107,7 @@ export default function FormNewVehicle() {
 
                         <div className="flex flex-col">
                             <label htmlFor="modeles" className="block text-gray-700 text-sm">
-                                Modeles
+                                
                             </label>
                             <select
                                 id="modeles"
@@ -184,10 +184,10 @@ export default function FormNewVehicle() {
                     </div>
                  
                 </div>
-                <div className="flex justify-end mr-[7rem] mb-8">
+                <div className="flex justify-center mt-10 ml-[10rem] mr-[7rem] mb-8">
                         <button
                             type="button"
-                            className="btn-green block rounded-md w-[12rem] h-[3rem] mt-[10rem] text-[14px]"
+                            className="btn-green block rounded-md w-[12rem] h-[3rem]  text-[14px]"
                             onClick={handleSubmit}
                         >
                             Ajouter Voiture
