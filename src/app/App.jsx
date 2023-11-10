@@ -9,10 +9,8 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import ScrollToTop from './components/scroll/ScrollToTop';
 import { useDispatch, useSelector } from 'react-redux';
 import { signIn, selectIsLogged } from './redux-store/authenticationSlice';
-import { URL_LOGIN, URL_REGISTER, URL_RESET_PASSWORD, URL_SEND_PASSWORD } from './constants/urls/urlFrontEnd';
 import { getToken } from './services/tokenServices';
 import LoadingSpinner from './components/spinner/LoadingSpinner';
-import HomeView from './views/HomeView';
 
 
 

@@ -16,7 +16,7 @@ import VehicleView from "../views/VehicleView";
 import VehicleFormView from "../views/VehicleFormView";
 import VehicleFormImgView from "../views/VehicleFormImgView";
 import ResetPassword from "../components/Password/resetPassword";
-
+import MessagesView from "../views/MessagesView";
 import TravelFormView from "../views/TravelFormView";
 
 const Routes = () => {
@@ -46,12 +46,14 @@ const Routes = () => {
       <Route path={URL.URL_MODIF_PROFIL} element={<PrivateRoute roles={[ROLE_USER]}><ModifProfilView /></PrivateRoute>} />
       <Route path={URL.URL_DELETE_PROFIL} element={<PrivateRoute roles={[ROLE_USER]}><DeleteProfilView /></PrivateRoute>} />
       <Route path={URL.URL_MODIF_PASSWORD} element={<PrivateRoute roles={[ROLE_USER]}><ModifPasswordView /></PrivateRoute>} />
+
       <Route path={URL.URL_VEHICLES} element={<PrivateRoute roles={[ROLE_USER]}><VehicleView /></PrivateRoute>} />
       <Route path={URL.URL_ADD_VEHICLE} element={<PrivateRoute roles={[ROLE_USER]}><VehicleFormView /></PrivateRoute>} />
       <Route path={URL.URL_ADD_IMG_VEHICLE} element={<PrivateRoute roles={[ROLE_USER]}><VehicleFormImgView /></PrivateRoute>} />
- 
 
-      <Route path={URL.URL_ADD_TRAVEL} element={<TravelFormView />} />
+      <Route path={URL.URL_ADD_TRAVEL} element={<PrivateRoute roles={[ROLE_USER]}><TravelFormView /></PrivateRoute>} />
+
+      <Route path={URL.URL_MESSAGES} element={<PrivateRoute roles={[ROLE_USER]}><MessagesView /></PrivateRoute>} />
 
     </RoutesContainer>
   );
