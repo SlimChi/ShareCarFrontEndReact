@@ -3,7 +3,6 @@ import { Navigate } from "react-router-dom"; // Importez Navigate
 import axios from "axios";
 
 import Sidebar from "../components/layouts/SideBar";
-import OptionTravel from "../components/Vehicle/OptionTravel";
 import FormNewVehicle from "../components/Vehicle/FormNewVehicle";
 
 export default function VehiculeFormView() {
@@ -31,7 +30,7 @@ export default function VehiculeFormView() {
         <form action=""> 
           <FormNewVehicle/>
 
-          <OptionTravel />
+      
           
           {/* Ajoutez un gestionnaire d'événements pour le bouton "ENREGISTRER" */}
           <div className="flex justify-end mr-[7rem] mb-8">

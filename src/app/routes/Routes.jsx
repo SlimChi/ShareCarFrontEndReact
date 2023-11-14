@@ -3,20 +3,27 @@ import { Route, Routes as RoutesContainer, useNavigate } from "react-router-dom"
 import { ROLE_ADMIN, ROLE_USER } from "../constants/rolesConstant";
 import * as URL from "../constants/urls/urlFrontEnd";
 import { PrivateRoute } from "./PrivateRoute";
+
 import AdminHomeView from "../views/AdminHomeView";
 import HomeView from "../views/HomeView";
 import LoginView from "../views/LoginView";
 import RegisterView from "../views/RegisterView";
+
 import ProfilView from "../views/ProfilView";
 import ModifProfilView from "../views/ModifProfilView";
 import DeleteProfilView from "../views/DeleteProfilView";
+
 import ModifPasswordView from "../views/ModifPasswordView";
 import SendPasswordView from "../views/SendPasswordView";
+import ResetPassword from "../components/Password/resetPassword";
+
 import VehicleView from "../views/VehicleView";
 import VehicleFormView from "../views/VehicleFormView";
 import VehicleFormImgView from "../views/VehicleFormImgView";
-import ResetPassword from "../components/Password/resetPassword";
+
+import SearchView from "../views/SearchView";
 import MessagesView from "../views/MessagesView";
+
 import TravelFormView from "../views/TravelFormView";
 
 const Routes = () => {
@@ -54,6 +61,7 @@ const Routes = () => {
       <Route path={URL.URL_ADD_TRAVEL} element={<PrivateRoute roles={[ROLE_USER]}><TravelFormView /></PrivateRoute>} />
 
       <Route path={URL.URL_MESSAGES} element={<PrivateRoute roles={[ROLE_USER]}><MessagesView /></PrivateRoute>} />
+      <Route path={URL.URL_SEARCH} element={<PrivateRoute roles={[ROLE_USER]}><SearchView /></PrivateRoute>} />
 
     </RoutesContainer>
   );

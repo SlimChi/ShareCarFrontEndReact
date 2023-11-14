@@ -10,8 +10,7 @@ import { ColorModeContext } from "../../theme";
 
 import {
   URL_HOME,
-  URL_LOGIN,
-  URL_REGISTER,
+  URL_SEARCH,
   URL_ADD_TRAVEL
 } from "../../constants/urls/urlFrontEnd";
 
@@ -42,14 +41,15 @@ const Navbar = () => {
           <h1 className="text-[#FFFFFF] text-3xl font-semibold flex items-center">SHARECAR</h1>
         </div>
 
+      
         <div className="flex flex-1 items-center justify-end lg:w-0">
           <div className="flex flex-row justify-between w-[10rem]">
-            <a
-              href=""
+            <Link
+              to={URL_SEARCH}
               className="flex flex-row items-center justify-between w-28 text-[#FFFFFF]"
             >
               Recherche
-            </a>
+            </Link>
           </div>
           <div className="flex flex-row justify-between ">
             <Link

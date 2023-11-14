@@ -27,7 +27,7 @@
     @apply text-white bg-gradient-to-tr from-[#3F9115] to-[#A8EB12] rounded hover:bg-gradient-to-tr hover:from-[#A8EB12] hover:to-[#3F9115] hover:text-white active:ring-[#57b526] ;
 }
 .btn-green-inverse{
-    @apply text-[#57b526] bg-white border-[#57b526] rounded hover:bg-[#57b526] hover:text-white active:ring-[#87e824] ;
+    @apply text-[#57b526] bg-white border-[#57b526] rounded hover:bg-gradient-to-tr hover:from-[#A8EB12] hover:to-[#3F9115] hover:text-white active:ring-[#87e824] ;
 }
 
 .btn-yellow{
