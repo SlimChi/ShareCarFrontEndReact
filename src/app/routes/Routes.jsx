@@ -25,6 +25,7 @@ import SearchView from "../views/SearchView";
 import MessagesView from "../views/MessagesView";
 
 import TravelFormView from "../views/TravelFormView";
+import OneTravelView from "../views/OneTravelView";
 
 const Routes = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -59,6 +60,7 @@ const Routes = () => {
       <Route path={URL.URL_ADD_IMG_VEHICLE} element={<PrivateRoute roles={[ROLE_USER]}><VehicleFormImgView /></PrivateRoute>} />
 
       <Route path={URL.URL_ADD_TRAVEL} element={<PrivateRoute roles={[ROLE_USER]}><TravelFormView /></PrivateRoute>} />
+      <Route path={URL.URL_ONE_TRAVEL} element={<PrivateRoute roles={[ROLE_USER]}><OneTravelView /></PrivateRoute>} />
 
       <Route path={URL.URL_MESSAGES} element={<PrivateRoute roles={[ROLE_USER]}><MessagesView /></PrivateRoute>} />
       <Route path={URL.URL_SEARCH} element={<PrivateRoute roles={[ROLE_USER]}><SearchView /></PrivateRoute>} />

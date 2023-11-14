@@ -1,6 +1,6 @@
 import React from "react"
 
-import CarouselVehicle from "../../components/Vehicle/CarouselVehicle";
+import CarouselVehicle from "../../Vehicle/CarouselVehicle";
 
 import { BsCarFront } from "react-icons/bs";
 import { PiBackpack } from "react-icons/pi";

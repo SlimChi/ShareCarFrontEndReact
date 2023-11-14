@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom"; // Importez Navigate
 import axios from "axios";
 
-import FormNewTravel from "../components/travel/FormNewTravel";
-import VehiculeChoice from "../components/travel/vehiculeChoice";
+import FormNewTravel from "../components/travel/addTravel/FormNewTravel";
+import VehiculeChoice from "../components/travel/addTravel/vehiculeChoice";
 
 export default function TravelFormView() {
   // const [redirect, setRedirect] = useState(false);

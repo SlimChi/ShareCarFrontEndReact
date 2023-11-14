@@ -2,7 +2,7 @@ import React from "react";
 
 import SearchForm from "../components/search/SearchForm";
 import SearchFilter from "../components/search/SearchFilter";
-import SearchTravelList from "../components/search/SearchTravelList";
+import SearchOneTravel from "../components/search/SearchOneTravel";
 
 
 
@@ -14,8 +14,8 @@ export default function SearchView() {
 
         <div className="flex flex-row justify-evenly">
             <SearchFilter/> 
-   
-            <SearchTravelList/>    
+
+            <SearchOneTravel/>  
         </div>
     </div>
     )

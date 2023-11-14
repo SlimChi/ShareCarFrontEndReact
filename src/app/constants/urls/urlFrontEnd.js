@@ -17,6 +17,7 @@ export const URL_ADD_IMG_VEHICLE = '/add-img-vehicle';
 
 export const URL_TRAVELS = '/travels';
 export const URL_ADD_TRAVEL = '/add-travel';
+export const URL_ONE_TRAVEL = '/one-travel';
 
 export const URL_MESSAGES = '/messages';
 export const URL_SEARCH = '/search';

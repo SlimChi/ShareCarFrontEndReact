@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import { URL_ONE_TRAVEL } from "../../constants/urls/urlFrontEnd";
 
 import {IoIosStar} from "react-icons/io";
 import {MdOutlineVoiceOverOff} from "react-icons/md";
@@ -9,9 +12,11 @@ import { LiaSmokingSolid } from "react-icons/lia";
 import { MdPets } from "react-icons/md";
 
 
-export default function SearchTravelList() {
+
+export default function SearchOneTravel() {
     return (
         <div className="flex flex-col ml-18">
+            <Link to={URL_ONE_TRAVEL}>
             <div className="flex">
                 <div className="flex flex-col justify-between bg-gray-100 w-[14rem] h-[12rem] rounded-tl-xl rounded-bl-xl">
                     <div className="flex items-center justify-center rounded-full bg-[#114076] w-[5rem] h-[5rem] m-4">
@@ -59,5 +64,6 @@ export default function SearchTravelList() {
                     
                 </div>
             </div>
+            </Link>
         </div>
 )}
