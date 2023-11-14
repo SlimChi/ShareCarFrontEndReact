@@ -11,10 +11,7 @@ import CarouselVehicle from "../components/Vehicle/CarouselVehicle";
 
 
 import { HiOutlineUsers } from "react-icons/hi";
-import { HiOutlineMusicNote } from "react-icons/hi";
-import { LiaSmokingSolid } from "react-icons/lia";
-import { MdOutlineVoiceOverOff } from "react-icons/md";
-import { MdPets } from "react-icons/md";
+
 
 export default function VehicleView () {
 
@@ -28,102 +25,57 @@ export default function VehicleView () {
 
             <div className="flex justify-end mr-[7rem]">
                 <Link to={URL_ADD_VEHICLE}>
-                    <button className="btn-green-inverse">AJOUTER UN VEHICULE</button>
+                    <button className="btn-green-inverse text-sm">AJOUTER UN VEHICULE</button>
                 </Link>
+                <button className="btn-green-inverse text-sm ml-12">SUPPRIMER MON VEHICULE</button>
             </div>
 
             <div className="px-8 pt-6 w-[25rem] ml-[5rem] mt-8">
-                <h6 className="font-bold text-[#114076] mb-8">VEHICULE 1</h6>
+                <h6 className="font-bold text-[#114076] mb-8">MON VEHICULE</h6>
             </div>
 
             <div className="flex flex-col justify-between">
                 <div className="flex flex-row justify-evenly">
-                    <div className="flex flex-col justify-between  space-y-8">
+                    <div className="flex flex-col justify-between h-[20rem]  space-y-8">
                         <div className="flex w-[20rem] items-center">
                             <BsCarFront className="text-[#57B526] text-4xl mr-6"/>
-                            <p>marque modèle couleur</p>
+                            <p>marque modèle</p>
+                        </div>
+
+                        <div className="flex w-[20rem] ">
+                            <HiOutlineUsers className="text-[#57B526] text-5xl mr-6"/>
+                            <div className="flex w-[20rem] items-center">
+                                <p className="font-bold text-[20px]">x </p>
+                                <p className="ml-4">Nbre de passagers</p>
+                            </div>
                         </div>
 
                         <div className="flex w-[20rem] ">
                             <PiBackpack className="text-[#57B526] text-5xl mr-6"/>
                             <div className="flex w-[20rem] items-center">
-                                <p className="font-bold text-[20px]">4 </p>
+                                <p className="font-bold text-[20px]">x </p>
                                 <p className="ml-4">Petits bagages</p>
                             </div>
-                            
                         </div>
 
                         <div className="flex w-[20rem]">
                             <PiSuitcaseRolling className="text-[#57B526] text-5xl mr-6"/>
                             <div className="flex w-[20rem] items-center">
-                                <p className="text-[20px]">2 </p>
+                                <p className="font-bold text-[20px]">x </p>
                                 <p className="ml-4">Grands bagages</p>
                             </div>
                         </div>
                     </div>
 
 
-                    <div>
+                    <div className="mb-[15rem]">
                         <CarouselVehicle />
                         {/* <img src="../../../../src/Images/Car2.png" alt="" className="w-[30rem]"/> */}
                     </div>
                 </div>
 
 
-                <div>
-                   <div className="px-8 pt-6 w-[25rem] ml-[5rem] mt-8">
-                        <h6 className="font-bold text-[#114076] mb-8">Options de voyage</h6>
-                    </div>
-
-{/* // mapper pour afficher les options */}
-<div className="flex justify-evenly w-full">
-            <div className="flex flex-col space-y-4">
-                <div className="flex justify-between items-center w-[20rem]">
-                    <div className="flex items-center w-[13rem]">
-                        <HiOutlineUsers className="text-[#57B526] text-[24px]"/>
-                        <p className="ml-4">Nombre de passagers</p>
-                    </div>
-                    <input type="checkbox" />
-                </div>
-                <div className="flex justify-between items-center w-[20rem]">
-                    <div className="flex items-center w-[13rem]">
-                        <LiaSmokingSolid className="text-[#57B526] text-[24px]"/>
-                        <p className="ml-4">Cigarette autorisée</p>
-                    </div>
-                    <input type="checkbox" />
-                </div>
-            </div>
-
-            <div className="flex flex-col space-y-4">
-                <div className="flex justify-between items-center w-[20rem]">
-                    <div className="flex items-center w-[13rem]">
-                        <MdOutlineVoiceOverOff className="text-[#57B526] text-[24px]"/>
-                        <p className="ml-4">Conducteur silencieux</p>
-                    </div>
-                    <input type="checkbox" />
-                </div>
-                <div className="flex justify-between items-center w-[20rem]">
-                    <div className="flex items-center w-[13rem]">
-                        <MdPets className="text-[#57B526] text-[24px]"/>
-                        <p className="ml-4">Animaux autorisés</p>
-                    </div>
-                    <input type="checkbox" />
-                </div>
-            </div>
-
-            <div className="flex flex-col space-y-4">
-                <div className="flex justify-between items-center w-[20rem]">
-                    <div className="flex items-center w-[13rem]">
-                        <HiOutlineMusicNote className="text-[#57B526] text-[24px]"/>
-                        <p className="ml-4">Musique en conduisant</p>
-                    </div>
-                    <input type="checkbox" />
-                </div>
                 
-            </div>
-            </div>
-            </div>
-
         </div>
     </div>
     );
