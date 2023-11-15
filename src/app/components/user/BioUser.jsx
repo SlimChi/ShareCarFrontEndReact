@@ -18,7 +18,7 @@ const BioUser = () => {
                     return;
                 }
 
-                const response = await axios.get('http://127.0.0.1:8000/api/get_user_images', {
+                const response = await axios.get('https://127.0.0.1:8000/api/get_user_images', {
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
@@ -85,7 +85,7 @@ const BioUser = () => {
             )}
 
 
-            <div className="flex flex-col justify-center w-[15rem] h-[40rem]">
+            <div className="flex flex-col w-[15rem] h-[40rem]">
                 <h4 className="mb-4 text-[#114076]"> Ma Bio</h4>
                 <p className="">
                 {oneBioUser && oneBioUser.biographie}

@@ -5,6 +5,8 @@ import { BsPen } from "react-icons/bs";
 import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
 import app from '../../components/modifuser/firebase.jsx';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { URL_PROFIL  } from "../../constants/urls/urlFrontEnd";
+
 
 
 const ModifBioUser = () => {
@@ -36,7 +38,7 @@ const ModifBioUser = () => {
         onSubmit: () => {
             axios({
                 method: 'put',
-                url: `https://127.0.0.1:8000/api/profil_modif`, 
+                url: `https://127.0.0.1:8000/api/profil_modif_bio`, 
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
@@ -75,7 +77,7 @@ const ModifBioUser = () => {
                     return;
                 }
 
-                const response = await axios.get('http://127.0.0.1:8000/api/get_user_images', {
+                const response = await axios.get('https://127.0.0.1:8000/api/get_user_images', {
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json',
@@ -194,9 +196,15 @@ const ModifBioUser = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.biographie}
+             
                 >
                     {formik.values.biographie}
                 </textarea>
+                <div className="flex justify-center">
+                <button type="submit" className="btn-green w-[8rem] h-[1.5rem] ">
+                Enregistrer
+            </button>
+                </div>
                 </form>
             </div>
         

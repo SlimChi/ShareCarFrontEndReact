@@ -27,13 +27,16 @@ function Register() {
             mot_de_passe: Yup.string()
                 .min(8, "Mot de passe trop court - minimum 8 caractères")
                 .required("Champ requis"),
+            confirmer_mot_de_passe: Yup
+                .string()
+                .oneOf([Yup.ref('mot_de_passe')], 'Les mots de passe ne sont pas identiques')    
         }),
         onSubmit: () => {
             setError(""); // Réinitialise les erreurs avant de faire une nouvelle requête
 
             axios({
                 method: 'post',
-                url: 'http://127.0.0.1:8000/inscription',
+                url: 'https://127.0.0.1:8000/inscription',
                 data: {
                     nom: formik.values.nom,
                     prenom: formik.values.prenom,
@@ -122,6 +125,18 @@ function Register() {
                     />
                     {formik.touched.mot_de_passe && formik.errors.mot_de_passe && (
                         <span className="text-red-500">{formik.errors.mot_de_passe}</span>
+                    )}
+                    <input
+                        type="password"
+                        className="input"
+                        name="confirmer_mot_de_passe"
+                        placeholder="Confirmer mot de passe"
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        value={formik.values.confirmer_mot_de_passe}
+                    />
+                    {formik.touched.confirmer_mot_de_passe && formik.errors.confirmer_mot_de_passe && (
+                        <span className="text-red-500">{formik.errors.confirmer_mot_de_passe}</span>
                     )}
                 </div>
                 <button

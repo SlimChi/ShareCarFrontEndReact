@@ -55,7 +55,7 @@ const ModifInfoUser = () => {
                     prenom: formik.values.prenom ?? oneUser.prenom,
                     pseudo: formik.values.pseudo ?? oneUser.pseudo,
                     email: formik.values.email ?? oneUser.email,
-                    date_de_naissance: formik.values.date_de_naissance ?? oneUser.date_de_naissance, 
+                    // date_de_naissance: formik.values.date_de_naissance ?? oneUser.date_de_naissance, 
                     adresse: formik.values.adresse ?? oneUser.adresse,
                     code_postal: formik.values.code_postal ?? oneUser.code_postal,
                     ville: formik.values.ville ?? oneUser.ville,
@@ -84,6 +84,7 @@ const ModifInfoUser = () => {
         <form onSubmit={formik.handleSubmit} >
             <div className="flex flex-col justify-between mt-8 w-[35rem]">
                 <div className="flex flex-col justify-evenly h-[20rem]">
+                    <label htmlFor="nom" className="text-[#114076] font-bold ">Nom</label>
                     <input 
                         type="text"
                         id="nom"
@@ -93,7 +94,8 @@ const ModifInfoUser = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.nom}
                         className="input"/>
-                    
+
+                    <label htmlFor="prenom" className="text-[#114076] font-bold ">Prénom</label>
                     <input 
                         type="text"
                         id="prenom"
@@ -103,7 +105,8 @@ const ModifInfoUser = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.prenom}
                         className="input"/>
-                  
+
+                    <label htmlFor="pseudo" className="text-[#114076] font-bold ">Pseudo</label>
                     <input 
                         type="text"
                         id="pseudo"
@@ -114,7 +117,7 @@ const ModifInfoUser = () => {
                         value={formik.values.pseudo}
                         className="input"/>
            
-                    <input 
+                    {/* <input 
                         type="date"
                         id="date_de_naissance"
                         name="date_de_naissance"
@@ -122,8 +125,9 @@ const ModifInfoUser = () => {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.date_de_naissance}
-                        className="input"/>
-                
+                        className="input"/> */}
+
+                    <label htmlFor="email" className="text-[#114076] font-bold ">Email</label>
                     <input 
                         type="Email"
                         id="email"
@@ -141,6 +145,7 @@ const ModifInfoUser = () => {
                 </div>
 
                 <div className="flex flex-col justify-evenly h-[7rem]">
+                    <label htmlFor="adresse" className="text-[#114076] font-bold ">Adresse</label>
                     <input
                         type="text"
                         id="adresse"
@@ -150,8 +155,10 @@ const ModifInfoUser = () => {
                         onBlur={formik.handleBlur}
                         value={formik.values.adresse}
                         className="input"/>
-                
-                    <div className="flex flex-row">
+
+
+                    <div className="flex flex-row ">
+                        <label htmlFor="code_postal" className="text-[#114076] font-bold ">CP</label>
                         <input 
                             type="text"
                             id="code_postal"
@@ -161,6 +168,8 @@ const ModifInfoUser = () => {
                             onBlur={formik.handleBlur}
                             value={formik.values.code_postal}
                             className="input w-[10rem]"/>
+
+                        <label htmlFor="ville" className="text-[#114076] font-bold ">Ville</label>
                         <input
                             type="text"
                             id="ville" 
