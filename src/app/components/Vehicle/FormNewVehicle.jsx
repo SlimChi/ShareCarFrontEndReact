@@ -15,7 +15,7 @@ export default function FormNewVehicle() {
     useEffect(() => {
         const fetchModeles = async () => {
             try {
-                const response = await axios.get("http://127.0.0.1:8000/api/modeles");
+                const response = await axios.get("https://127.0.0.1:8000/api_modeles");
                 setModeles(response.data);
             } catch (error) {
                 console.error(error);
@@ -67,14 +67,15 @@ export default function FormNewVehicle() {
 
         console.log("Submitting data:", data);
         try {
-            const response = await axios.post("http://127.0.0.1:8000/api/ajouter_voiture", data, {
+            const response = await axios.post("https://127.0.0.1:8000/api/ajouter_voiture", data, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 },
             });
-            console.log(response.data.message); // Message de réussite
+            console.log(response.data.message); 
+            alert("Voiture ajouter avec succès.");
         } catch (error) {
             console.error("Erreur lors de l'ajout de la voiture :", error);
         }

@@ -3,14 +3,10 @@ import { Link } from "react-router-dom";
 
 import Sidebar from "../components/layouts/SideBar";
 
-import { BsCarFront } from "react-icons/bs";
-import { PiBackpack } from "react-icons/pi";
-import { PiSuitcaseRolling } from "react-icons/pi";
 import { URL_ADD_VEHICLE } from "../constants/urls/urlFrontEnd";
-import CarouselVehicle from "../components/Vehicle/CarouselVehicle";
+import Vehicle from "../components/Vehicle/Vehicle";
 
 
-import { HiOutlineUsers } from "react-icons/hi";
 
 
 export default function VehicleView () {
@@ -33,12 +29,8 @@ export default function VehicleView () {
             <div className="px-8 pt-6 w-[25rem] ml-[5rem] mt-8">
                 <h6 className="font-bold text-[#114076] mb-8">MON VEHICULE</h6>
             </div>
-
             <Vehicle/>
-
-
-                
-        
+           
     </div>
     );
 }

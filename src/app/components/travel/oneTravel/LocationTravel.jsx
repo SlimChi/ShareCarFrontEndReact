@@ -1,9 +1,3 @@
-import react from "@heroicons/react";
-
-import Map from "./Map";
-
-import {IoIosStar} from "react-icons/io";
-import {MdOutlineVoiceOverOff} from "react-icons/md";
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 import { HiOutlineUsers } from "react-icons/hi";
 import { HiOutlineMusicNote } from "react-icons/hi";
@@ -56,7 +50,7 @@ export default function LocationTravel() {
                         </div>
 
                         </div>
-                    <Map/> 
+              
                     </div>
                     </div> 
                 </div>

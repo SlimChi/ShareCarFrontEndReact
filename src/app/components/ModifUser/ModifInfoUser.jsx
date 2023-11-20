@@ -55,7 +55,7 @@ const ModifInfoUser = () => {
                     prenom: formik.values.prenom ?? oneUser.prenom,
                     pseudo: formik.values.pseudo ?? oneUser.pseudo,
                     email: formik.values.email ?? oneUser.email,
-                    // date_de_naissance: formik.values.date_de_naissance ?? oneUser.date_de_naissance, 
+                    date_de_naissance: formik.values.date_de_naissance ?? oneUser.date_de_naissance, 
                     adresse: formik.values.adresse ?? oneUser.adresse,
                     code_postal: formik.values.code_postal ?? oneUser.code_postal,
                     ville: formik.values.ville ?? oneUser.ville,
@@ -117,7 +117,7 @@ const ModifInfoUser = () => {
                         value={formik.values.pseudo}
                         className="input"/>
            
-                    {/* <input 
+                    <input 
                         type="date"
                         id="date_de_naissance"
                         name="date_de_naissance"
@@ -125,7 +125,7 @@ const ModifInfoUser = () => {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                         value={formik.values.date_de_naissance}
-                        className="input"/> */}
+                        className="input"/>
 
                     <label htmlFor="email" className="text-[#114076] font-bold ">Email</label>
                     <input 

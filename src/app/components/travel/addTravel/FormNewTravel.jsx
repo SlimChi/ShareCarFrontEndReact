@@ -8,15 +8,8 @@ import EditLocationAltOutlinedIcon from '@mui/icons-material/EditLocationAltOutl
 import axios from 'axios';
 import { LiaSmokingSolid } from 'react-icons/lia';
 
-export default function FormulaireNouveauTrajet() {
+export default function FormulaireNewTrajet() {
 
-    const [coordinates, setCoordinates] = useState({
-        latitudeDepart: 0,
-        longitudeDepart: 0,
-        latitudeArrivee: 0,
-        longitudeArrivee: 0,
-    });
-    
     const [formData, setFormData] = useState({
         adresseDepart: '',
         codePostalDepart: '',
@@ -43,13 +36,13 @@ export default function FormulaireNouveauTrajet() {
             ...formData,
             [name]: value,
         });
-
+    
         // Call Adresse Data Gouv API for address suggestions
         try {
             const response = await axios.get(
                 `https://api-adresse.data.gouv.fr/search/?q=${value}&limit=5&type=housenumber&autocomplete=1`
             );
-
+    
             if (type === 'depart') {
                 setSuggestionsDepart(response.data.features);
             } else if (type === 'arrivee') {
@@ -59,42 +52,41 @@ export default function FormulaireNouveauTrajet() {
             console.error('Error fetching address suggestions:', error);
         }
     };
+    
+    
 
     const handleAddressSelect = async (selectedAddress, type) => {
         try {
-            const id = selectedAddress.properties.id;
-            const coordResponse = await axios.get(`https://api-adresse.data.gouv.fr/search/${id}`);
-            const coordinates = coordResponse.data.geometry.coordinates;
+            // Utilisez les coordonnées directement pour obtenir les détails de l'adresse
+            const result = selectedAddress;
+    
+            const detailsAdresse = {
+                ville: result.properties.city,
+                codePostal: result.properties.postcode,
+            };
     
             if (type === 'depart') {
+                console.log('Setting Depart Address:', result.properties.label);
                 setFormData({
                     ...formData,
-                    adresseDepart: selectedAddress.properties.label,
-                    codePostalDepart: selectedAddress.properties.postcode,
-                    villeDepart: selectedAddress.properties.city,
+                    adresseDepart: result.properties.label,
+                    codePostalDepart: detailsAdresse.codePostal,
+                    villeDepart: detailsAdresse.ville,
                 });
-                setCoordinates({
-                    ...coordinates,
-                    latitudeDepart: coordinates[1],
-                    longitudeDepart: coordinates[0],
-                });
+    
                 setSuggestionsDepart([]);
             } else if (type === 'arrivee') {
+                console.log('Setting Arrival Address:', result.properties.label);
                 setFormData({
                     ...formData,
-                    adresseArrivee: selectedAddress.properties.label,
-                    codePostalArrivee: selectedAddress.properties.postcode,
-                    villeArrivee: selectedAddress.properties.city,
-                });
-                setCoordinates({
-                    ...coordinates,
-                    latitudeArrivee: coordinates[1],
-                    longitudeArrivee: coordinates[0],
+                    adresseArrivee: result.properties.label,
+                    codePostalArrivee: detailsAdresse.codePostal,
+                    villeArrivee: detailsAdresse.ville,
                 });
                 setSuggestionsArrivee([]);
             }
         } catch (error) {
-            console.error('Error fetching coordinates:', error);
+            console.error('Erreur lors de la récupération des coordonnées :', error);
         }
     };
     
@@ -104,7 +96,7 @@ export default function FormulaireNouveauTrajet() {
 
         // Construire l'objet de données
         const data = {
-            voiture_id: 1,
+            voiture_id: 2,
             prix: formData.tarif,
             fumeur: formData.cigaretteAutorisee,
             silence: formData.conducteurSilencieux,
@@ -128,7 +120,7 @@ export default function FormulaireNouveauTrajet() {
             }
 
             const response = await axios.post(
-                'https://127.0.0.1:8000/api/ajouter_trajet',
+                'https://127.0.0.1:8000/api/add_trip',
                 data,
                 {
                     headers: {
@@ -139,7 +131,8 @@ export default function FormulaireNouveauTrajet() {
                 }
             );
 
-            console.log(response.data.message); // Message de succès
+            console.log(response.data.message); 
+            alert("Trajet ajouter avec succès.");
         } catch (error) {
             console.error("Erreur lors de l'ajout du trajet :", error);
         }
@@ -174,7 +167,7 @@ export default function FormulaireNouveauTrajet() {
                             type="text"
                             name="adresseDepart"
                             id="adresse1"
-                            placeholder="Adresse"
+                            placeholder="Rue, adresse"
                             className="input"
                             onChange={(e) => handleInputChange(e, 'depart')}
                             value={formData.adresseDepart}
@@ -221,9 +214,10 @@ export default function FormulaireNouveauTrajet() {
                             type="text"
                             name="adresseArrivee"
                             id="adresse1"
-                            placeholder="Adresse"
+                            placeholder="Rue, adresse"
                             className="input"
                             onChange={(e) => handleInputChange(e, 'arrivee')}
+                            value={formData.adresseArrivee}
                         />
                         <div className="flex">
                             <input
@@ -379,7 +373,7 @@ export default function FormulaireNouveauTrajet() {
                 className="bg-[#57B526] text-white px-6 py-3 rounded-full mt-8"
                 onClick={handleSubmit}
             >
-                AJOUTER TRAJET
+                Ajouter Trajet
             </button>
         </div>
     );

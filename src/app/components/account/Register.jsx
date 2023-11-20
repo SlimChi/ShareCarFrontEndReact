@@ -29,14 +29,14 @@ function Register() {
                 .required("Champ requis"),
             confirmer_mot_de_passe: Yup
                 .string()
-                .oneOf([Yup.ref('mot_de_passe')], 'Les mots de passe ne sont pas identiques')    
+                .oneOf([Yup.ref('mot_de_passe')], 'Les mots de passe ne sont pas identiques')
         }),
         onSubmit: () => {
-            setError(""); // Réinitialise les erreurs avant de faire une nouvelle requête
+            setError("");
 
             axios({
                 method: 'post',
-                url: 'https://127.0.0.1:8000/inscription',
+                url: 'https://127.0.0.1:8000/register',
                 data: {
                     nom: formik.values.nom,
                     prenom: formik.values.prenom,
@@ -49,12 +49,25 @@ function Register() {
                 if (response.data.status === true) {
                     window.location.href = URL_LOGIN;
                 } else {
-                    setError(response.data.message); // Stocker l'erreur dans le state
+                    setError(response.data.message);
                 }
             }).catch(function (error) {
-                console.log(error);
-                setError("Une erreur s'est produite. Veuillez réessayer."); // Gérer l'erreur de requête
+                if (error.response) {
+
+                    console.log(error.response.data);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+                    setError(error.response.data.message);
+                } else if (error.request) {
+
+                    console.log(error.request);
+                } else {
+
+                    console.log('Error', error.message);
+                }
+                console.log(error.config);
             });
+
         }
     })
 
@@ -150,6 +163,7 @@ function Register() {
                     <Link to={URL_LOGIN} className="bold text-[#57B526] hover:text-[#87e824]">
                         me connecter.
                     </Link>
+
                 </p>
             </form>
         </div>

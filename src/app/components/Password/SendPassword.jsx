@@ -15,23 +15,29 @@ export default function SendPassword() {
         setRedirect(true);
     }
 
+    const validationSchema = Yup.object({
+        email: Yup.string()
+            .email("Adresse email invalide")
+            .required("Champ obligatoire")
+            .test('notEmpty', 'Champ obligatoire', function (value) {
+                return value.trim() !== '';
+            }),
+    });
+    
     const formik = useFormik({
         initialValues: {
             email: "",
         },
-        validationSchema: Yup.object({
-            email: Yup.string()
-                .email("Adresse email invalide")
-                .required("Champ obligatoire"),
-        }),
+        validationSchema: validationSchema,
         onSubmit: async (values) => {
             try {
-                const response = await axios.post('https://127.0.0.1:8000/reinitialisationmdp', {
+                const response = await axios.post('https://127.0.0.1:8000/forgotPassword', {
                     email: values.email,
                 });
-
+    
                 if (response.data.status === true) {
                     alert("Un e-mail de réinitialisation de mot de passe a été envoyé avec succès.");
+                    navigate(URL_LOGIN);
                 } else {
                     alert("Échec de l'envoi de l'e-mail de réinitialisation.");
                 }
@@ -40,6 +46,7 @@ export default function SendPassword() {
             }
         },
     });
+    
     return (
         <div className="flex justify-between items-center ml-[10%] mt-20">
             <div className="flex flex-col w-full items-center justify-between h-[25rem]">
@@ -60,11 +67,9 @@ export default function SendPassword() {
                     <button type="submit" onClick={handleEnregistrerClick} className="btn-green w-[15rem] h-[3rem] mt-[1rem]">
                         Envoyer l'e-mail de réinitialisation
                     </button>
-                    {redirect && <Navigate to={URL_LOGIN} />}
+                  
                 </form>
-            </div>
-
-        
+            </div>        
         </div>
     );
 }

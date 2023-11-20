@@ -1,17 +1,18 @@
 import React from "react";
 
-import LocationTravel from "../components/travel/oneTravel/LocationTravel";
+
 import OptionVehicleTravel from "../components/travel/oneTravel/OptionVehicleTravel";
 import DriverTravel from "../components/travel/oneTravel/DriverTravel";
 import LastNotice from "../components/travel/oneTravel/LastNotice";
 
 import { LuCalendarCheck2 } from "react-icons/lu";
+import Map from "../components/travel/oneTravel/Map";
 
 
 export default function OneTravelView() {
     return (
         <div>
-            <LocationTravel />
+      <Map/>
             <div className="flex justify-center mb-20">
                 <div className=" border-2 border-[#57B526] rounded-xl w-[80rem] "></div>
             </div>
